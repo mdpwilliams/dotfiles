@@ -42,6 +42,7 @@
 
   "workbench.iconTheme": "vscode-icons",
   "workbench.activityBar.visible": true,
+  "workbench.sideBar.location": "right",
   "workbench.statusBar.visible": true,
 
   "vim.statusBarColorControl": true,
