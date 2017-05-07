@@ -1,0 +1,189 @@
+"*":
+  "atom-css-comb":
+    readyMadeConfigs: "csscomb"
+  "atom-csscomb":
+    extendPreset: true
+  "atom-material-ui":
+    colors:
+      abaseColor: "#80a08b"
+      accentColor: "#ad8282"
+      paintCursor: true
+      predefinedColor: "Green"
+    fonts:
+      fontSize: 14
+    tabs:
+      compactTabs: true
+    treeView:
+      compactList: true
+    ui:
+      animations: false
+      panelContrast: true
+  "atom-ternjs":
+    useSnippets: true
+  "autocomplete-plus":
+    backspaceTriggersAutocomplete: true
+    builtinProviderBlacklist: ".source.gfm, .source.md, text.plain"
+    fileBlacklist: [
+      "*.md"
+      "*.txt"
+    ]
+    scopeBlacklist: [
+      "source.gfm"
+      "source.text"
+      "text.plain"
+      "source.md"
+      "text.git-commit"
+    ]
+  autosave:
+    enabled: true
+  core:
+    closeDeletedFileTabs: true
+    closeEmptyWindows: false
+    disabledPackages: [
+      "atom-nightshift"
+      "pigments"
+      "language-stylus"
+      "react"
+      "atom-typescript"
+      "atom-css-comb"
+      "minimap-cursorline"
+      "linter-tslint"
+      "dash"
+      "welcome"
+      "javascript-snippets"
+      "styleguide"
+      "about"
+      "spell-check"
+      "file-icons"
+      "auto-update-packages"
+      "whitespace"
+      "linter-stylelint"
+      "archive-view"
+      "background-tips"
+      "open-on-github"
+      "package-generator"
+      "wrap-guide"
+    ]
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "node_modules"
+    ]
+    packagesWithKeymapsDisabled: [
+      "git-diff"
+      "highlight-selected"
+      "git-plus"
+      "tool-bar"
+    ]
+    telemetryConsent: "limited"
+    titleBar: "custom"
+  "duotone-dark-syntax":
+    color:
+      duo: "#debfbf"
+      uno: "#a8e0bb"
+  "duotone-light-syntax":
+    color:
+      duo: "#8f6c6c"
+      uno: "#4b5e52"
+  editor:
+    fontFamily: "\"Operator Mono\""
+    invisibles: {}
+    lineHeight: 1.625
+    scrollPastEnd: true
+    showIndentGuide: true
+    softWrap: true
+  "exception-reporting":
+    userId: "2b50952c-2cd2-d746-b068-77e96ca63451"
+  "file-icons": {}
+  "find-and-replace":
+    projectSearchResultsPaneSplitDirection: "right"
+  "genesis-ui":
+    distractionFree: {}
+    treeView:
+      toggleHovers: false
+  "git-diff": {}
+  "git-plus":
+    general:
+      _analyticsUserId: "39c9064d-151a-4285-a2dc-15da08ab47b3"
+      splitPane: "Right"
+  "highlight-selected":
+    hideHighlightOnSelectedWord: true
+    showInStatusBar: false
+  "isotope-ui":
+    backgroundGradient: true
+  linter:
+    lintPreviewTabs: false
+  "linter-eslint":
+    disableWhenNoEslintConfig: false
+    globalNodePath: "usr/local"
+  "linter-php":
+    errorReporting: false
+  "linter-sass-lint": {}
+  "linter-scss-lint":
+    disableWhenNoConfigFileInPath: false
+    executablePath: "/usr/local/bin/scss-lint"
+  "linter-stylelint":
+    disableWhenNoConfig: false
+    useStandard: true
+  "linter-ui-default":
+    gutterPosition: "Left"
+    tooltipFollows: "Keyboard"
+  minimap:
+    plugins:
+      cursorline: true
+      cursorlineDecorationsZIndex: 0
+  "one-dark-ui":
+    fontSize: 12
+  "one-light-ui":
+    fontSize: 12
+  "seti-syntax": {}
+  "seti-ui":
+    compactView: true
+    disableAnimations: true
+    fileIcons: false
+    font: "Default Atom Font"
+    themeColor: "Green"
+  "status-bar": {}
+  "sync-settings":
+    _analyticsUserId: "1fa3f3be-8ec3-429e-a632-a8cdb41d1107"
+    _lastBackupHash: "3a4790265945b09dae879a40dfe3adff920055c2"
+    gistId: "df6a7635941d4b985dcfc31a21f4bc99"
+    personalAccessToken: "9594c3a0c0af71ebdd7da9116f89ae3616411a12"
+  tabs:
+    enableMruTabSwitching: false
+    enableVcsColoring: true
+    showIcons: false
+  "tool-bar":
+    iconSize: "16px"
+    position: "Left"
+  "tree-view":
+    focusOnReveal: false
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+  typewriter:
+    scopes: "text.html.mediawiki,source.gfm,text.md,text.plain"
+  "vim-mode-plus":
+    incrementalSearch: true
+    keymapPToPutWithAutoIndent: true
+    showHoverOnOperate: true
+    showHoverSearchCounter: true
+    smoothScrollOnFullScrollMotion: true
+    smoothScrollOnHalfScrollMotion: true
+    startInInsertModeScopes: [
+      "text.git-commit"
+      "text.git-rebase"
+    ]
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ensureSingleTrailingNewline: false
+"source.gfm":
+  editor:
+    softWrap: true
+"text.plain":
+  editor:
+    softWrap: true

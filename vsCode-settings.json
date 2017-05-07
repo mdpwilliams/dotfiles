@@ -1,0 +1,63 @@
+// Place your settings in this file to overwrite the default settings
+{
+	"editor.fontFamily": "Operator Mono, Menlo, Monaco, 'Courier New', monospace",
+
+	"editor.fontSize": 13,
+
+  "editor.formatOnType": true,
+
+	"editor.tabSize": 2,
+	"editor.insertSpaces": true,
+  "editor.minimap.enabled": true,
+	"editor.detectIndentation": false,
+  "editor.renderIndentGuides": true,
+  "editor.formatOnPaste": true,
+  "editor.lineNumbers": "relative",
+  "editor.wordWrap": "on",
+
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "**/build": true
+  },
+  "files.autoSave": "onFocusChange",
+  "files.associations": {"*.module":"php","*.inc":"php","*.tmpl":"php"},
+
+  "zenMode.hideActivityBar": false,
+
+  "[markdown]": {
+    "editor.lineNumbers": "off"
+  },
+
+	"terminal.external.osxExec": "iTerm.app",
+
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+
+  "extensions.autoUpdate": true,
+
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.activityBar.visible": true,
+  "workbench.statusBar.visible": true,
+
+  "vim.statusBarColorControl": true,
+  "vim.useSystemClipboard": false,
+  "vim.statusBarColors": {
+    "normal": "#005f5f",
+    "insert": "#5f0000",
+    "visual": "#5f00af",
+    "visualline": "#005f87",
+    "visualblock": "#86592d",
+    "replace": "#000000"
+  },
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#005f5f",
+    "statusBar.noFolderBackground": "#005f5f",
+    "statusBar.debuggingBackground": "#005f5f"
+  },
+  "editor.cursorBlinking": "solid"
+}
