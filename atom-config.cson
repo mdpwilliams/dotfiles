@@ -96,8 +96,6 @@
     scrollPastEnd: true
     showIndentGuide: true
     softWrap: true
-  "exception-reporting":
-    userId: "2b50952c-2cd2-d746-b068-77e96ca63451"
   "file-icons": {}
   "find-and-replace":
     projectSearchResultsPaneSplitDirection: "right"
@@ -108,7 +106,6 @@
   "git-diff": {}
   "git-plus":
     general:
-      _analyticsUserId: "39c9064d-151a-4285-a2dc-15da08ab47b3"
       splitPane: "Right"
   "highlight-selected":
     hideHighlightOnSelectedWord: true
@@ -148,11 +145,6 @@
     font: "Default Atom Font"
     themeColor: "Green"
   "status-bar": {}
-  "sync-settings":
-    _analyticsUserId: "1fa3f3be-8ec3-429e-a632-a8cdb41d1107"
-    _lastBackupHash: "3a4790265945b09dae879a40dfe3adff920055c2"
-    gistId: "df6a7635941d4b985dcfc31a21f4bc99"
-    personalAccessToken: "9594c3a0c0af71ebdd7da9116f89ae3616411a12"
   tabs:
     enableMruTabSwitching: false
     enableVcsColoring: true
