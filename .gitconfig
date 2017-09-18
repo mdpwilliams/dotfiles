@@ -1,7 +1,6 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Mitchell Williams
-	email = mitchell.williams@mercatus.com
 [core]
 	editor = vim 
 	excludesfile = /Users/mitchell.williams/.gitignore_global
@@ -65,5 +64,3 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-[gui]
-	recentrepo = /Users/mitchell.williams/Sites/drupal
