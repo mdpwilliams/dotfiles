@@ -1,64 +1,129 @@
 // Place your settings in this file to overwrite the default settings
 {
-  "editor.fontFamily": "Operator Mono, Menlo, Monaco, 'Courier New', monospace",
-
-  "editor.fontSize": 13,
-
-  "editor.formatOnType": true,
-
+  "editor.fontFamily": "Fira Code, Operator Mono, Menlo",
+  "editor.fontWeight": "300",
+  "editor.fontSize": 16,
+  "editor.lineHeight": 24,
+  "editor.fontLigatures": true,
+  "editor.formatOnType": false,
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
-  "editor.minimap.enabled": true,
   "editor.detectIndentation": false,
   "editor.renderIndentGuides": true,
   "editor.formatOnPaste": true,
   "editor.lineNumbers": "relative",
-  "editor.wordWrap": "on",
-
+  "editor.rulers": [
+    100
+  ],
+  "editor.wordWrapColumn": 100,
+  "editor.wordWrap": "bounded",
+  "editor.autoIndent": true,
+  "editor.formatOnSave": false,
+  "editor.renderLineHighlight": "none",
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.tabCompletion": true,
+  "editor.minimap.renderCharacters": false,
+  "editor.find.autoFindInSelection": true,
+  "editor.folding": true,
+  "editor.showFoldingControls": "mouseover",
+  "editor.snippetSuggestions": "top",
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
     "**/.hg": true,
     "**/.DS_Store": true,
-    "**/build": true
+    "**/build": true,
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "*.min.js": true
   },
   "files.autoSave": "onFocusChange",
-  "files.associations": {"*.module":"php","*.inc":"php","*.tmpl":"php"},
-
+  "files.associations": {
+    "*.module": "php",
+    "*.inc": "php",
+    "*.tmpl": "php",
+    "*.mjml": "handlebars"
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "explorer.decorations.badges": false,
+  "explorer.openEditors.visible": 0,
   "zenMode.hideActivityBar": false,
-
+  "zenMode.hideStatusBar": false,
   "[markdown]": {
-    "editor.lineNumbers": "off"
+    "editor.lineNumbers": "off",
+    "editor.wordWrap": "bounded"
   },
-
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[scss]": {
+    "editor.formatOnSave": false
+  },
+  "[html]": {
+    "editor.formatOnSave": false
+  },
   "terminal.external.osxExec": "iTerm.app",
-
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
-
+  "terminal.integrated.fontFamily": "Operator Mono",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.lineHeight": 1.2,
   "extensions.autoUpdate": true,
-
-  "workbench.iconTheme": "vscode-icons",
-  "workbench.activityBar.visible": true,
-  "workbench.sideBar.location": "right",
-  "workbench.statusBar.visible": true,
-
-  "vim.statusBarColorControl": true,
-  "vim.useSystemClipboard": false,
+  "git.checkoutType": "local",
+  "diffEditor.renderSideBySide": false,
+  "debug.inlineValues": true,
+  "vim.foldfix": true,
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": false,
+  "vim.insertModeKeyBindings": [],
+  "vim.handleKeys": {
+    "<C-d>": true
+  },
+  "vim.statusBarColorControl": false,
   "vim.statusBarColors": {
-    "normal": "#80A088",
-    "insert": "#7392AD",
-    "visual": "#ECD3B1",
-    "visualline": "#6D5F4C",
-    "visualblock": "#617A67",
-    "replace": "#9479B9"
+    "normal": [ "#80A088", "#EDEDED" ],
+    "insert": "#A04D52",
+    "visual": "#6D5F4C",
+    "visualline": [ "#ECD3B1", "#404040" ],
+    "visualblock": "#A39BAD",
+    "replace": "#D08770"
   },
+  "workbench.sideBar.location": "left",
+  "workbench.statusBar.visible": true,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.tabSizing": "shrink",
+  "editor.cursorBlinking": "blink",
+  "window.zoomLevel": 0,
+  "window.nativeTabs": false,
+  "window.clickThroughInactive": false,
+  "workbench.colorTheme": "Material Theme Darker High Contrast",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.activityBar.visible": false,
   "workbench.colorCustomizations": {
-    "statusBar.background": "#005f5f",
-    "statusBar.noFolderBackground": "#005f5f",
-    "statusBar.debuggingBackground": "#005f5f"
+    "statusBar.background": "#282A36",
+    "statusBar.noFolderBackground": "#282A36",
+    "statusBar.debuggingBackground": "#EC2018",
+    "statusBar.foreground": "#EDEDED"
   },
-  "editor.cursorBlinking": "solid"
+  "workbench.statusBar.feedback.visible": false,
+  "git.autofetch": true,
+  "workbench.startupEditor": "none",
+  "gitlens.keymap": "alternate",
+  "gitlens.explorers.avatars": true,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false,
+    "suppressResultsExplorerNotice": true,
+    "suppressShowKeyBindingsNotice": true
+  },
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "gitlens.historyExplorer.enabled": true,
+  "materialTheme.fixIconsRunning": false
 }
+
