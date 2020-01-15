@@ -7,7 +7,7 @@ export ZSH=/Users/mitchell.williams/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="pure"
+ZSH_THEME=""
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -20,7 +20,7 @@ ZSH_THEME="pure"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=3
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -42,7 +42,7 @@ ZSH_THEME="pure"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -51,7 +51,7 @@ ZSH_THEME="pure"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew npm zsh-completions zsh-syntax-highlighting)
+plugins=(git brew vi-mode sudo docker docker-compose kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -83,21 +83,40 @@ export EDITOR='vim'
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
+
+# Config Alias
 alias zshconfig="$EDITOR ~/.zshrc"
 alias vimconfig="$EDITOR ~/.vimrc"
-alias dgulp="drush cc all && gulp"
+alias gitconfig="$EDITOR ~/.gitconfig"
+alias ctagsconfig="$EDITOR ~/.ctags"
+alias k9sconfig="$EDITOR $HOME/.k9s/config.yml"
 
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Useful Tools Alias
+# cat out but with syntax highlighting
+alias cat=bat
 
-export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+# ctag alias
+alias ctags="`brew --prefix`/bin/ctags"
+
+# Kubernetes
+alias kk="k9s"
+
+# Docker 
+alias dockerdel="docker kill $(docker ps -q) && docker rm $(docker ps -a -q) && docker rmi $(docker images -q)"
+
+# Vim
+alias v="vim"
+alias vv="vim ."
+
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export PATH="$PATH:`yarn global bin`"
 export PATH="/usr/local/bin:$PATH"
 
 fpath=(/usr/local/share/zsh-completions $fpath)
+
+# fuzzy file finder settings
+source ~/.fzfrc
+
 ###-begin-npm-completion-###
 #
 # npm command completion script
@@ -161,6 +180,8 @@ fi
 
 # Brew auto completions
 
-
 # ZSH Syntax Highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+bindkey '^ ' autosuggest-accept
