@@ -102,7 +102,7 @@ alias ctags="`brew --prefix`/bin/ctags"
 alias kk="k9s"
 
 # Docker 
-alias dockerdel="docker kill $(docker ps -q) && docker rm $(docker ps -a -q) && docker rmi $(docker images -q)"
+# alias dockerdel="docker kill $(docker ps -q) && docker rm $(docker ps -a -q) && docker rmi $(docker images -q)"
 
 # Vim
 alias v="vim"
@@ -112,7 +112,7 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath+=(/usr/local/share/zsh-completions)
 
 # fuzzy file finder settings
 source ~/.fzfrc
