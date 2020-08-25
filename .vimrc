@@ -1,42 +1,25 @@
-set nocompatible
-filetype off
-set foldlevel=-1
-set foldmethod=syntax
-set nofoldenable
-
-set runtimepath+=~/.vim_runtime
-
-set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-
-" Colour
-Plugin 'reedes/vim-colors-pencil'
-
+call plug#begin('~/.vim/plugged')
 " General
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-Plugin 'tommcdo/vim-lion'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'bling/vim-airline'
-Plugin 'airblade/vim-gitgutter'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'scrooloose/nerdtree'
+Plug 'bling/vim-airline'
+Plug 'mhinz/vim-signify'
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Development
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 
 " Language
-Plugin 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'sheerun/vim-polyglot'
 
-call vundle#end()
-filetype plugin indent on
-syntax enable
-
-source ~/.vim_runtime/vimrcs/basic.vim
-source ~/.vim_runtime/vimrcs/filetypes.vim
-source ~/.vim_runtime/vimrcs/plugins_config.vim
-" source ~/.vim_runtime/vimrcs/extended.vim
+" Color
+Plug '~/.vim/plugged/dracula_pro'
+call plug#end()
 
 " get <Del> to work properly
 set backspace=indent,eol,start
@@ -44,32 +27,6 @@ set backspace=indent,eol,start
 " Correct scrolling behaviour
 if has('mouse')
   set mouse=a
-endif
-
-" get <c-p> to work for CtrlP
-let g:ctrlp_map='<c-p>'
-let g:ctrlp_cmd='CtrlP'
-
-" enable for extensions
-let g:ctrlp_extensions=['tag', 'buffertag']
-
-" get CtrlP to take advantage of ag's ignore
-if exists("g:ctrlp_user_command")
-  unlet g:ctrlp_user_command
-endif
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_working_path_mode = 'ra'
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_switch_buffer = 0
-  let g:ctrlp_use_caching = 0
-else
-  " Fall back to using git ls-files if Ag is not available
-  let g:ctrlp_custom_ignore = '\.DS_Store|\.git$\|\.hg$\|\.svn$|node_modules'
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard']
 endif
 
 augroup CursorLine
@@ -95,15 +52,62 @@ set breakindent " Indent wrapped lines
 set showbreak=↳ " Show ↳ in broken lines
 set splitright " Split to the right
 set splitbelow " and below the current buffer
+set cmdheight=1
 set signcolumn=yes
+set updatetime=100
+" Set 7 lines to the cursor - when moving vertically using j/k
+set so=7
+ 
+let mapleader= ","
+" map space to forward search and ctrl-space to reverse search 
+map <space> / 
+map <C-space> ? 
 
-" Gitgutter settings
-let g:gitgutter_git_executable='/usr/local/bin/git'
-let g:gitgutter_diff_args="-w" " Tell gitgutter to ignore whitespace differences
-set updatetime=250
+" Custom aliases
+nmap <leader>w :w<CR>
+nmap <leader><CR> :so ~/.vimrc<CR>
+
+" Clever movements
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Quickly open a buffer for scribble
+map <leader>q :e ~/buffer<cr>
+
+" Quickly open a markdown buffer for scribble
+map <leader>x :e ~/buffer.md<cr>
+
+" signify settings
+let g:signify_sign_change = '~'
+
+" coc settings
+set shortmess+=c
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
 " Airline settings
-let g:airline_theme = 'dark'
+let g:airline_theme = 'dracula_pro'
 let g:airline_exclude_preview = 0
 let g:airline_mode_map = {
     \ '__'     : '-',
@@ -127,33 +131,26 @@ let g:airline_mode_map = {
     \ }
 
 " Airline extensions
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = "unique_tail_improved"
-let g:airline#extensions#tabline#exclude_preview = 1
-let g:airline#extensions#tabline#buffers_label = 'b'
-let g:airline#extensions#tabline#current_first = 1
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>- <Plug>AirlineSelectPrevTab
-nmap <leader>+ <Plug>AirlineSelectNextTab
-
-" Lion (Alignment) Settings
-let g:lion_squeeze_spaces = 1 
+let g:airline#extensions#tabline#enabled = 0
 
 " NERDTree settings
-nmap <leader>e :NERDTreeToggleVCS<cr>
+let g:NERDTreeWinPos = "right"
+let NERDTreeShowHidden=0
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+let g:NERDTreeWinSize=35
+map <leader>nn :NERDTreeToggle<cr>
+map <leader>nb :NERDTreeFromBookmark<Space>
+map <leader>nf :NERDTreeFind<cr>
+
+" fzf completion
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_COMMAND='ag -g "" -p ~/.ignore'
+let $FZF_DEFAULT_OPTS = '--reverse'
+
+nnoremap <C-p> :Files<CR>
 
 " emmet settings
-" nmap <leader>
-
-" ctags setup
-set tags=tags
-nnoremap <leader>r :CtrlPBufTag<cr>
-nnoremap <leader>t :CtrlPTag<cr>
+" nmap <leader>e :Em:E
 
 " Make sure swap, backup, and undo files don't clutter up my directories
 set directory=~/.vim/swap//
@@ -161,9 +158,16 @@ set backupdir=~/.vim/backup//
 set undodir=~/.vim/undo//
 
 " set colour theme
+syntax on
+set bg=dark
 set t_Co=256 " (if needed) use 256-colour setting
-set background=dark
-colorscheme pencil
+set termguicolors
+if &term =~ '256color'
+    set t_ut=
+endif
 
-set noshowmode
-set noruler
+let g:dracula_colorterm = 0
+colorscheme dracula_pro
+
+" set noshowmode
+" set noruler
