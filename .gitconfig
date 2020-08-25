@@ -1,9 +1,12 @@
-# This is Git's per-user configuration file.
 [user]
-	name = Mitchell Williams
+  name = Mitchell Williams
+  email = MY EMAIL
+
+[includeIf "gitdir:~/work-dir/"] 
+  path = .gitconfig-WORK
 [core]
-	editor = vim 
-	excludesfile = /Users/mitchell.williams/.gitignore_global
+  editor = vim 
+  excludesfile = /Users/mitchell.williams/.gitignore_global
 [alias]
   please = push --force-with-lease
   unstage = reset -q HEAD --
@@ -44,7 +47,7 @@
   untuck = stash pop "stash@{0}"
   g = grep --extended-regexp --break --heading --line-number
 [diff]
-	indentHeuristic = true
+  indentHeuristic = true
 [color "diff"]
   meta = yellow bold ul
   frag = cyan bold ul
@@ -58,9 +61,3 @@
   break = true
   heading = true
   lineNumber = true
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
