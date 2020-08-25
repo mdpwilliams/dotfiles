@@ -4,7 +4,7 @@ export FZF_COMPLETION_TRIGGER='~~'
 export FZF_COMPLETION_OTPS='+c -x'
 
 export FZF_DEFAULT_COMMAND='ag -g "" -p ~/.ignore'
-export FZF_DEFAULT_OPTS='--height 60% --border'
+export FZF_DEFAULT_OPTS='--reverse --height 60% --border'
 
 # Changing Directory
 fd() {
