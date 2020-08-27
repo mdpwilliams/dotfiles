@@ -6,7 +6,7 @@
   path = .gitconfig-WORK
 [core]
   editor = vim 
-  excludesfile = /Users/mitchell.williams/.gitignore_global
+  excludesfile = /Users/mitchellwilliams/.gitignore_global
 [alias]
   please = push --force-with-lease
   unstage = reset -q HEAD --
