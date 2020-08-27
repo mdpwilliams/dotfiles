@@ -9,6 +9,7 @@ Plug 'mhinz/vim-signify'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'keith/investigate.vim'
 
 " Development
 Plug 'mattn/emmet-vim'
@@ -132,6 +133,11 @@ let g:airline_mode_map = {
 
 " Airline extensions
 let g:airline#extensions#tabline#enabled = 0
+
+" Investigate/Dash settings
+let g:investigate_use_dash = 1
+nnoremap <leader>K :call investigate#Investigate('n')<CR>
+vnoremap <leader>K :call investigate#Investigate('v')<CR>
 
 " NERDTree settings
 let g:NERDTreeWinPos = "right"
