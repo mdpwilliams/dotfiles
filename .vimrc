@@ -80,6 +80,19 @@ map <leader>q :e ~/buffer<cr>
 " Quickly open a markdown buffer for scribble
 map <leader>x :e ~/buffer.md<cr>
 
+" Whitespace on save
+function! StripTrailingWhitespace()
+  normal mZ
+  let l:chars = col("$")
+  %s/\s\+$//e
+  if (line("'Z") != line(".")) || (l:chars != col("$"))
+    echo "Trailing whitespace stripped\n"
+  endif
+  normal `Z
+endfunction
+
+autocmd BufWritePre * call StripTrailingWhitespace()
+
 " signify settings
 let g:signify_sign_change = '~'
 
