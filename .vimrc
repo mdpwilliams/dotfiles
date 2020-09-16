@@ -58,11 +58,11 @@ set signcolumn=yes
 set updatetime=100
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
- 
+
 let mapleader= ","
-" map space to forward search and ctrl-space to reverse search 
-map <space> / 
-map <C-space> ? 
+" map space to forward search and ctrl-space to reverse search
+map <space> /
+map <C-space> ?
 
 " Custom aliases
 nmap <leader>w :w<CR>
