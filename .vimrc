@@ -58,11 +58,11 @@ set signcolumn=yes
 set updatetime=100
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
- 
+
 let mapleader= ","
-" map space to forward search and ctrl-space to reverse search 
-map <space> / 
-map <C-space> ? 
+" map space to forward search and ctrl-space to reverse search
+map <space> /
+map <C-space> ?
 
 " Custom aliases
 nmap <leader>w :w<CR>
@@ -79,6 +79,19 @@ map <leader>q :e ~/buffer<cr>
 
 " Quickly open a markdown buffer for scribble
 map <leader>x :e ~/buffer.md<cr>
+
+" Whitespace on save
+function! StripTrailingWhitespace()
+  normal mZ
+  let l:chars = col("$")
+  %s/\s\+$//e
+  if (line("'Z") != line(".")) || (l:chars != col("$"))
+    echo "Trailing whitespace stripped\n"
+  endif
+  normal `Z
+endfunction
+
+autocmd BufWritePre * call StripTrailingWhitespace()
 
 " signify settings
 let g:signify_sign_change = '~'
