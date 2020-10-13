@@ -2,7 +2,7 @@
 
 # Install Brew and Cask
 echo "Installing Brew..."
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 echo "Installing Cask..."
 brew tap caskroom/cask
