@@ -34,7 +34,7 @@ brew install yabai
 brew install gh
 
 brew cask install iterm2
-brew cask install chrome
+brew cask install google-chrome
 brew cask install slack
 brew cask install spotify
 brew cask install alfred
