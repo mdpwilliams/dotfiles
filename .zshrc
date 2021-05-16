@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/mitchellwilliams/.oh-my-zsh
+export ZSH=/Users/mitchell.williams/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -51,7 +51,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew vi-mode sudo docker docker-compose kubectl)
+plugins=(git brew vi-mode sudo docker docker-compose kubectl tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,12 +101,15 @@ alias ctags="`brew --prefix`/bin/ctags"
 # Kubernetes
 alias kk="k9s"
 
-# Docker 
+# Docker
 # alias dockerdel="docker kill $(docker ps -q) && docker rm $(docker ps -a -q) && docker rmi $(docker images -q)"
 
 # Vim
 alias v="nvim"
 alias vv="nvim ."
+
+# Lazydocker
+alias lzd="lazydocker"
 
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
