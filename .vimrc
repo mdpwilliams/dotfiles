@@ -3,7 +3,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
+Plug 'tommcdo/vim-lion'
 Plug 'scrooloose/nerdtree'
+Plug 'wellle/targets.vim'
 Plug 'bling/vim-airline'
 Plug 'mhinz/vim-signify'
 Plug 'jiangmiao/auto-pairs'
@@ -13,10 +15,13 @@ Plug 'keith/investigate.vim'
 
 " Development
 Plug 'mattn/emmet-vim'
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Language
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-liquid'
 
 " Color
 Plug '~/.vim/plugged/dracula_pro'
@@ -147,10 +152,21 @@ let g:airline_mode_map = {
 " Airline extensions
 let g:airline#extensions#tabline#enabled = 0
 
+let g:airline#extensions#branch#format = 2
+
+let g:airline#extensions#coc#enabled = 1
+let g:airline_section_b = airline#section#create([ 'hunks' ])
+let g:airline_section_c = airline#section#create([ 'file' ])
+let g:airline_section_z = airline#section#create([ 'linenr', 'maxlinenr' ])
+
 " Investigate/Dash settings
 let g:investigate_use_dash = 1
 nnoremap <leader>K :call investigate#Investigate('n')<CR>
 vnoremap <leader>K :call investigate#Investigate('v')<CR>
+
+"sn
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/bin/python'
 
 " NERDTree settings
 let g:NERDTreeWinPos = "right"
@@ -167,6 +183,8 @@ let $FZF_DEFAULT_COMMAND='ag -g "" -p ~/.ignore'
 let $FZF_DEFAULT_OPTS = '--reverse'
 
 nnoremap <C-p> :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>f :Ag<Space>
 
 " emmet settings
 " nmap <leader>e :Em:E

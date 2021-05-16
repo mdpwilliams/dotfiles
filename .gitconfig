@@ -1,14 +1,15 @@
 [user]
   name = Mitchell Williams
-  email = MY EMAIL
+  email = mitchell.williams@mercatus.com
 
-[includeIf "gitdir:~/work-dir/"] 
+[includeIf "gitdir:~/work-dir/"]
   path = .gitconfig-WORK
 [core]
-  editor = vim 
+  editor = vim
   excludesfile = /Users/mitchellwilliams/.gitignore_global
 [alias]
   please = push --force-with-lease
+  upstream-current = push --set-upstream $(git branch --show-current)
   unstage = reset -q HEAD --
   discard = checkout --
   nevermind = !git reset --hard HEAD && git clean -d -f
