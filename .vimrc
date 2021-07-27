@@ -98,6 +98,9 @@ endfunction
 
 autocmd BufWritePre * call StripTrailingWhitespace()
 
+" vim-fugitive
+map <leader>g :Git
+
 " signify settings
 let g:signify_sign_change = '~'
 
@@ -107,6 +110,8 @@ set shortmess+=c
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
+      " \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump', ''])\<CR>" :
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -118,12 +123,20 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Snippets
+" Use <C-space> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<C-j>'
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<C-k>'
+
 " Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
+" if has('nvim')
+"   inoremap <silent><expr> <C-space> coc#refresh()
+" else
+"   inoremap <silent><expr> <C-@> coc#refresh()
+" endif
 
 " Airline settings
 let g:airline_theme = 'dracula_pro'
@@ -159,11 +172,6 @@ let g:airline_section_b = airline#section#create([ 'hunks' ])
 let g:airline_section_c = airline#section#create([ 'file' ])
 let g:airline_section_z = airline#section#create([ 'linenr', 'maxlinenr' ])
 
-" Investigate/Dash settings
-let g:investigate_use_dash = 1
-nnoremap <leader>K :call investigate#Investigate('n')<CR>
-vnoremap <leader>K :call investigate#Investigate('v')<CR>
-
 "sn
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/usr/bin/python'
@@ -179,10 +187,11 @@ map <leader>nf :NERDTreeFind<cr>
 
 " fzf completion
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+" let g:fzf_layout = { 'window': 'enew' }
 let $FZF_DEFAULT_COMMAND='ag -g "" -p ~/.ignore'
 let $FZF_DEFAULT_OPTS = '--reverse'
 
-nnoremap <C-p> :Files<CR>
+nnoremap <C-p> :GFiles<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>f :Ag<Space>
 
