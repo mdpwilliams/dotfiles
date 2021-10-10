@@ -51,7 +51,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew vi-mode sudo docker docker-compose kubectl tmux)
+plugins=(git brew vi-mode sudo docker docker-compose kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -61,6 +61,10 @@ autoload -U promptinit; promptinit
 prompt pure
 
 # export MANPATH="/usr/local/man:$MANPATH"
+
+# Node and node version manager details
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
