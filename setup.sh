@@ -28,7 +28,7 @@ link_file() {
     mv "$link" dotfiles-backup
   fi
 
-  ln -s "$source" "$link"
+  ln -sf "$source" "$link"
 }
 
 [[ "$(uname -s)" == "Darwin" ]] && mac_os=true || mac_os=false
@@ -72,9 +72,9 @@ cd "$HOME/.vim/pack/plugins/start"
 git submodule update --init --recursive
 cd -
 
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-mv "$HOME/.zshrc" "$HOME/.zshrc-ohmyzsh"
-mv "$HOME/.zshrc.pre-oh-my-zsh" "$HOME/.zshrc"
+# sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# mv "$HOME/.zshrc" "$HOME/.zshrc-ohmyzsh"
+# mv "$HOME/.zshrc.pre-oh-my-zsh" "$HOME/.zshrc"
 
 # theme installation here
 
