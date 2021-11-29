@@ -1,13 +1,17 @@
+#! /bin/env zsh
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+[[ "$(uname -s)" == "Darwin" ]] && mac_os=true || mac_os=false
+
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/mitchellwilliams/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME=""
+ZSH_THEME="eastwood"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,14 +55,12 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew vi-mode sudo docker docker-compose kubectl)
+plugins=(git brew vi-mode macos man)
+if $mac_os; then
+  plugins+=(macos)
+fi
 
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
-# Prompt
-autoload -U promptinit; promptinit
-prompt pure
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -89,7 +91,6 @@ alias zshconfig="$EDITOR ~/.zshrc"
 alias vimconfig="$EDITOR ~/.vimrc"
 alias gitconfig="$EDITOR ~/.gitconfig"
 alias ctagsconfig="$EDITOR ~/.ctags"
-alias k9sconfig="$EDITOR $HOME/.k9s/config.yml"
 
 # Useful Tools Alias
 # cat out but with syntax highlighting
@@ -98,21 +99,32 @@ alias cat=bat
 # ctag alias
 alias ctags="`brew --prefix`/bin/ctags"
 
-# Kubernetes
-alias kk="k9s"
-
-# Docker 
-# alias dockerdel="docker kill $(docker ps -q) && docker rm $(docker ps -a -q) && docker rmi $(docker images -q)"
-
 # Vim
 alias v="nvim"
 alias vv="nvim ."
 
-export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
+export PATH="$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH"
+
+# NVM settings
+export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 fpath+=(/usr/local/share/zsh-completions)
+
+sources=(
+  /usr/local/share/zsh-syntax-highlighting/zsh-autosuggestions.zsh
+  /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  /opt/homebrew/share/zsh-syntax-highlighting/zsh-autosuggestions.zsh
+  /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+)
+for s in $sources; do
+  if [ -f $s ]; then
+    source $s
+  fi
+done
 
 # fuzzy file finder settings
 source ~/.fzfrc
@@ -181,7 +193,14 @@ fi
 # Brew auto completions
 
 # ZSH Syntax Highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^ ' autosuggest-accept
+
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+if [ -e /Users/mitchell.williams/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/mitchell.williams/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+[[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
+
+[[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
