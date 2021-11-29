@@ -80,7 +80,7 @@ cd -
 
 if $mac_os; then
   brew install zsh-autosuggestions
-else
+# else
   # mkdir -p "$HOME/.oh-my-zsh/custom/plugins"
   # git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 fi
