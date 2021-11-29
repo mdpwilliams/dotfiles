@@ -83,7 +83,7 @@ fbr() {
 fadd() {
   local files
   files=$(git ls-files --exclude-standard -dmo | awk '{print $1}') || return
-  file=$(echo "$files" | 
+  file=$(echo "$files" |
     fzf-tmux -d $(( 2 + $(wc -l <<< "$files") )) +m -1 -0 --query=$1) || return
   git add $( echo "$file" )
 }
@@ -92,7 +92,7 @@ fadd() {
 fpatch() {
   local files
   files=$(git ls-files --exclude-standard -dmo | awk '{print $1}') || return
-  file=$(echo "$files" | 
+  file=$(echo "$files" |
     fzf-tmux -d $(( 2 + $(wc -l <<< "$files") )) +m -1 -0 --query=$1) || return
   git add --patch $( echo "$file" )
 }
@@ -101,7 +101,7 @@ fpatch() {
 freset() {
   local files
   files=$(git ls-files --exclude-standard -s | awk '{print $1}') || return
-  file=$(echo "$files" | 
+  file=$(echo "$files" |
     fzf-tmux -d $(( 2 + $(wc -l <<< "$files") )) +m -1 -0 --query=$1) || return
   git reset HEAD $( echo "$file" )
 }
