@@ -19,6 +19,10 @@ link_file() {
   source=$link_source/$1
   link=$HOME/.$1
 
+  if [ "$1" == ".vim" ]; then
+    link=$HOME/$1
+  fi
+
   if [ -e "$link" ]; then
     mkdir -p dotfiles-backup
     mv "$link" dotfiles-backup
@@ -64,7 +68,7 @@ for filename in .*; do
   link_file "$filename"
 done
 
-cd "$HOME/.vim/pack/bundle/start"
+cd "$HOME/.vim/pack/plugins/start"
 git submodule update --init --recursive
 cd -
 
