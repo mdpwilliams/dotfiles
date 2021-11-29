@@ -1,26 +1,3 @@
-call plug#begin('~/.vim/plugged')
-" General
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
-Plug 'scrooloose/nerdtree'
-Plug 'bling/vim-airline'
-Plug 'mhinz/vim-signify'
-Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'keith/investigate.vim'
-
-" Development
-Plug 'mattn/emmet-vim'
-
-" Language
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'sheerun/vim-polyglot'
-
-" Color
-Plug '~/.vim/plugged/dracula_pro'
-call plug#end()
 
 " get <Del> to work properly
 set backspace=indent,eol,start
@@ -162,6 +139,11 @@ map <leader>nb :NERDTreeFromBookmark<Space>
 map <leader>nf :NERDTreeFind<cr>
 
 " fzf completion
+" installation
+packadd! fzf
+packadd! fzf.vim
+set rtp+=/usr/local/opt/fzf
+
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 let $FZF_DEFAULT_COMMAND='ag -g "" -p ~/.ignore'
 let $FZF_DEFAULT_OPTS = '--reverse'
@@ -185,8 +167,17 @@ if &term =~ '256color'
     set t_ut=
 endif
 
+packadd! dracula_pro
+
 let g:dracula_colorterm = 0
 colorscheme dracula_pro
 
 " set noshowmode
 " set noruler
+
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
