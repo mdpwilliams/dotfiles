@@ -1,13 +1,15 @@
 [user]
   name = Mitchell Williams
-  email = MY EMAIL
 
-[includeIf "gitdir:~/work-dir/"] 
-  path = .gitconfig-WORK
 [core]
-  editor = vim 
-  excludesfile = /Users/mitchellwilliams/.gitignore_global
+  editor = vim
+  excludesfile = ~/.gitignore_global
+
+[init]
+  defaultbranch = main
+
 [alias]
+  shopify = "config user.email 'mitchell.williams@shopify.com'"
   please = push --force-with-lease
   unstage = reset -q HEAD --
   discard = checkout --
@@ -46,17 +48,21 @@
   tuck = stash save
   untuck = stash pop "stash@{0}"
   g = grep --extended-regexp --break --heading --line-number
+
 [diff]
   indentHeuristic = true
+
 [color "diff"]
   meta = yellow bold ul
   frag = cyan bold ul
   old = red bold
   new = green bold
+
 [color "status"]
   added = green bold
   changed = yellow bold
   untracked = red bold
+
 [grep]
   break = true
   heading = true
