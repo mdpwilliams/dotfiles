@@ -11,6 +11,7 @@
 [alias]
   shopify = "config user.email 'mitchell.williams@shopify.com'"
   please = push --force-with-lease
+  upstream-current = push --set-upstream $(git branch --show-current)
   unstage = reset -q HEAD --
   discard = checkout --
   nevermind = !git reset --hard HEAD && git clean -d -f
