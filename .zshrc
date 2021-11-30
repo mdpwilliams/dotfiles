@@ -230,7 +230,7 @@ fi
 ###-end-npm-completion-###
 
 # Z terminal navigation
-if $macos; then
+if $mac_os; then
   . `brew --prefix`/etc/profile.d/z.sh
 fi
 
