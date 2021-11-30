@@ -234,14 +234,6 @@ if $macos; then
   . `brew --prefix`/etc/profile.d/z.sh
 fi
 
-# Brew auto completions
-
-# ZSH Syntax Highlighting
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '^ ' autosuggest-accept
-
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 if [ -e /Users/mitchell.williams/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/mitchell.williams/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
