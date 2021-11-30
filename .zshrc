@@ -154,9 +154,14 @@ fpath+=(/usr/local/share/zsh-completions)
 sources=(
   /usr/local/share/zsh-syntax-highlighting/zsh-autosuggestions.zsh
   /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-  /opt/homebrew/share/zsh-syntax-highlighting/zsh-autosuggestions.zsh
-  /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 )
+if $macos; then
+  sources+=(
+    /opt/homebrew/share/zsh-syntax-highlighting/zsh-autosuggestions.zsh
+    /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  )
+fi
+
 for s in $sources; do
   if [ -f $s ]; then
     source $s
@@ -177,20 +182,20 @@ source ~/.fzfrc
 if type complete &>/dev/null; then
   _npm_completion () {
     local words cword
-    if type _get_comp_words_by_ref &>/dev/null; then
-      _get_comp_words_by_ref -n = -n @ -w words -i cword
-    else
-      cword="$COMP_CWORD"
-      words=("${COMP_WORDS[@]}")
-    fi
+      if type _get_comp_words_by_ref &>/dev/null; then
+        _get_comp_words_by_ref -n = -n @ -w words -i cword
+      else
+        cword="$COMP_CWORD"
+          words=("${COMP_WORDS[@]}")
+          fi
 
-    local si="$IFS"
-    IFS=$'\n' COMPREPLY=($(COMP_CWORD="$cword" \
-                           COMP_LINE="$COMP_LINE" \
-                           COMP_POINT="$COMP_POINT" \
-                           npm completion -- "${words[@]}" \
-                           2>/dev/null)) || return $?
-    IFS="$si"
+          local si="$IFS"
+          IFS=$'\n' COMPREPLY=($(COMP_CWORD="$cword" \
+                COMP_LINE="$COMP_LINE" \
+                COMP_POINT="$COMP_POINT" \
+                npm completion -- "${words[@]}" \
+                2>/dev/null)) || return $?
+          IFS="$si"
   }
   complete -o default -F _npm_completion npm
 elif type compdef &>/dev/null; then
