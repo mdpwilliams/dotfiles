@@ -44,7 +44,6 @@ set -u
 
 declare -a packages=(
   "fzf"
-  "neovim"
 )
 
 if $mac_os; then
@@ -53,6 +52,7 @@ if $mac_os; then
     "glow"
     "the_silver_searcher"
     "zsh-completions"
+    "neovim"
   )
 else
   packages+=(
@@ -76,18 +76,20 @@ cd "$HOME/.vim/pack/plugins/opt"
 git submodule update --init --recursive
 cd -
 
-
-# sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-# mv "$HOME/.zshrc" "$HOME/.zshrc-ohmyzsh"
-# mv "$HOME/.zshrc.pre-oh-my-zsh" "$HOME/.zshrc"
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+mv "$HOME/.zshrc" "$HOME/.zshrc-ohmyzsh"
+mv "$HOME/.zshrc.pre-oh-my-zsh" "$HOME/.zshrc"
 
 # theme installation here
+mkdir -p "$HOME/.oh-my-zsh/custom/themes"
+curl https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme > \
+  "$HOME/.oh-my-zsh/custom/themes/bullet-train.zsh-theme"
 
 if $mac_os; then
   brew install zsh-autosuggestions
-# else
-  # mkdir -p "$HOME/.oh-my-zsh/custom/plugins"
-  # git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+else
+  mkdir -p "$HOME/.oh-my-zsh/custom/plugins"
+  git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 fi
 
 if [ $SPIN ]; then
