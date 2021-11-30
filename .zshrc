@@ -85,7 +85,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew vi-mode macos man)
+plugins=(git brew vi-mode man)
 if $mac_os; then
   plugins+=(macos)
 fi
@@ -95,8 +95,10 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Node and node version manager details
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+if $mac_os; then
+  export NVM_DIR=~/.nvm
+  source $(brew --prefix nvm)/nvm.sh
+fi
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -121,10 +123,12 @@ export EDITOR='nvim'
 # For a full list of active aliases, run `alias`.
 
 # Config Alias
-alias zshconfig="$EDITOR ~/.zshrc"
-alias vimconfig="$EDITOR ~/.vimrc"
-alias gitconfig="$EDITOR ~/.gitconfig"
-alias ctagsconfig="$EDITOR ~/.ctags"
+if $mac_os; then
+  alias zshconfig="$EDITOR ~/.zshrc"
+  alias vimconfig="$EDITOR ~/.vimrc"
+  alias gitconfig="$EDITOR ~/.gitconfig"
+  alias ctagsconfig="$EDITOR ~/.ctags"
+fi
 
 # Useful Tools Alias
 # cat out but with syntax highlighting
