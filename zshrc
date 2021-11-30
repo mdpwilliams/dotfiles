@@ -11,7 +11,37 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="eastwood"
+ZSH_THEME="bullet-train"
+
+if [ "$SPIN" ]; then
+  BULLETTRAIN_PROMPT_ORDER=(
+    time
+    context
+    status
+    dir
+    git
+  )
+  BULLETTRAIN_CONTEXT_BG=green
+  BULLETTRAIN_CONTEXT_FG=white
+
+  if [ -e /etc/zsh/zshrc.default.inc.zsh ]; then
+    source /etc/zsh/zshrc.default.inc.zsh
+  fi
+else
+  BULLETTRAIN_PROMPT_ORDER=(
+    time
+    status
+    dir
+    git
+  )
+fi
+BULLETTRAIN_CONTEXT_BG=green
+BULLETTRAIN_CONTEXT_FG=black
+BULLETTRAIN_RUBY_BG=magenta
+BULLETTRAIN_RUBY_FG=white
+BULLETTRAIN_VIRTUALENV_BG=green
+BULLETTRAIN_VIRTUALENV_FG=black
+BULLETTRAIN_STATUS_EXIT_SHOW=true
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
