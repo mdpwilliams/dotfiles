@@ -40,6 +40,7 @@ set -u
 
 declare -a packages=(
   "fzf"
+  "vim"
 )
 
 if $mac_os; then
@@ -48,7 +49,6 @@ if $mac_os; then
     "glow"
     "the_silver_searcher"
     "zsh-completions"
-    "neovim"
   )
 else
   packages+=(

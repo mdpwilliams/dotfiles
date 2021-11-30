@@ -134,16 +134,15 @@ fi
 # cat out but with syntax highlighting
 alias cat=bat
 
-# ctag alias
-alias ctags="`brew --prefix`/bin/ctags"
-
 # Vim
 alias v="nvim"
 alias vv="nvim ."
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
-export PATH="$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH"
+if $macos; then
+  export PATH="$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH"
+fi
 
 # NVM settings
 export NVM_DIR="$HOME/.nvm"
@@ -226,7 +225,9 @@ fi
 ###-end-npm-completion-###
 
 # Z terminal navigation
-. `brew --prefix`/etc/profile.d/z.sh
+if $macos; then
+  . `brew --prefix`/etc/profile.d/z.sh
+fi
 
 # Brew auto completions
 
@@ -240,5 +241,9 @@ bindkey '^ ' autosuggest-accept
 if [ -e /Users/mitchell.williams/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/mitchell.williams/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
+
+[[ -x /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
+
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
