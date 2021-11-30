@@ -17,11 +17,7 @@ link_file() {
 	fi
 
   source=$link_source/$1
-  link=$HOME/.$1
-
-  if [ "$1" == ".vim" ]; then
-    link=$HOME/$1
-  fi
+  link=$HOME/$1
 
   if [ -e "$link" ]; then
     mkdir -p dotfiles-backup
