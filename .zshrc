@@ -140,7 +140,7 @@ alias vv="nvim ."
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
-if $macos; then
+if $mac_os; then
   export PATH="$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH"
 fi
 
@@ -155,7 +155,7 @@ sources=(
   /usr/local/share/zsh-syntax-highlighting/zsh-autosuggestions.zsh
   /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 )
-if $macos; then
+if $mac_os; then
   sources+=(
     /opt/homebrew/share/zsh-syntax-highlighting/zsh-autosuggestions.zsh
     /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -243,4 +243,4 @@ if [ -e /Users/mitchell.williams/.nix-profile/etc/profile.d/nix.sh ]; then . /Us
 
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 
-[[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
+# [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
