@@ -42,3 +42,6 @@
 	path = .vim/pack/plugins/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim.git
   branch = release
+[submodule ".vim/pack/plugins/start/emmet-vim"]
+	path = .vim/pack/plugins/start/emmet-vim
+	url = https://github.com/mattn/emmet-vim.git
