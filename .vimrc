@@ -144,11 +144,16 @@ packadd! fzf
 packadd! fzf.vim
 set rtp+=/usr/local/opt/fzf
 
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+" let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let g:fzf_layout = { 'down': '35%' }
 let $FZF_DEFAULT_COMMAND='ag -g "" -p ~/.ignore'
 let $FZF_DEFAULT_OPTS = '--reverse'
 
 nnoremap <C-p> :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+
+" vim-fugitive settings
+nnoremap <leader>g :Git
 
 " emmet settings
 " nmap <leader>e :Em:E
