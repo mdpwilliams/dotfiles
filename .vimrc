@@ -97,6 +97,19 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
+" extensions
+let g:coc_global_extensions = [
+      \   'coc-highlight',
+      \   'coc-markdownlint',
+      \   'coc-git',
+      \   'coc-json',
+      \   'coc-html',
+      \   'coc-css',
+      \   'coc-eslint',
+      \   'coc-snippets',
+      \   'coc-graphql'
+      \ ]
+
 " Airline settings
 let g:airline_theme = 'dracula_pro'
 let g:airline_exclude_preview = 0
@@ -120,14 +133,28 @@ let g:airline_mode_map = {
     \ 'V'      : 'V',
     \ ''     : 'V',
     \ }
+let g:airline_section_z = airline#section#create(['linenr', 'maxlinenr'])
 
 " Airline extensions
-let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#displayed_head_limit = 10
 
-" Investigate/Dash settings
-let g:investigate_use_dash = 1
-nnoremap <leader>K :call investigate#Investigate('n')<CR>
-vnoremap <leader>K :call investigate#Investigate('v')<CR>
+let g:airline#extensions#coc#enabled = 1
+
+let g:airline#extensions#fugitiveline#enabled = 1
+
+let g:airline#extensions#fzf#enabled = 1
+
+" git hunks
+let g:airline#extensions#hunks#enabled = 1
+let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
+let g:airline#extensions#hunks#coc_git = 1
+
+let g:airline#extensions#nerdtree_statusline = 1
+
+let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
+
+let g:airline#extensions#tabline#enabled = 1
 
 " NERDTree settings
 let g:NERDTreeWinPos = "right"
@@ -151,12 +178,10 @@ let $FZF_DEFAULT_OPTS = '--reverse'
 
 nnoremap <C-p> :Files<CR>
 nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>f :Ag
 
 " vim-fugitive settings
 nnoremap <leader>g :Git
-
-" emmet settings
-" nmap <leader>e :Em:E
 
 " Make sure swap, backup, and undo files don't clutter up my directories
 set directory=~/.vim/swap//
@@ -177,8 +202,8 @@ packadd! dracula_pro
 let g:dracula_colorterm = 0
 colorscheme dracula_pro
 
-" set noshowmode
-" set noruler
+set noshowmode
+set noruler
 
 " Load all plugins now.
 " Plugins need to be added to runtimepath before helptags can be generated.
