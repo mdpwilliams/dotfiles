@@ -133,7 +133,7 @@ let g:airline_mode_map = {
     \ 'V'      : 'V',
     \ ''     : 'V',
     \ }
-let g:airline_section_z = airline#section#create(['linenr', 'maxlinenr'])
+let g:airline_section_z = airline#section#create_right(['linenr', 'maxlinenr'])
 
 " Airline extensions
 let g:airline#extensions#branch#enabled = 1
