@@ -40,7 +40,6 @@ set -u
 
 declare -a packages=(
   "fzf"
-  "neovim"
 )
 
 if $mac_os; then
@@ -49,11 +48,16 @@ if $mac_os; then
     "glow"
     "the_silver_searcher"
     "zsh-completions"
+    "neovim"
   )
 else
   packages+=(
     "silversearcher-ag"
   )
+
+  sudo add-apt-repository ppa:neovim-ppa/stable
+  sudo apt-get update
+  sudo apt-get install neovim
 fi
 
 for package in "${packages[@]}"; do
