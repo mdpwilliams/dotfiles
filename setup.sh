@@ -92,7 +92,7 @@ else
   git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 fi
 
-if [ $SPIN ]; then
+# if [ $SPIN ]; then
   # sudo update-alternatives --remove vi /usr/bin/nvim
   # sudo update-alternatives --remove vim /usr/bin/nvim
   # git config --global --unset-all credential.helper
@@ -102,4 +102,4 @@ if [ $SPIN ]; then
   #   git shopify
   #   cd - >/dev/null
   # done
-fi
+# fi
