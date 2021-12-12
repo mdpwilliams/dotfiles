@@ -40,7 +40,7 @@ set -u
 
 declare -a packages=(
   "fzf"
-  "nvim"
+  "neovim"
 )
 
 if $mac_os; then
