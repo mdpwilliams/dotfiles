@@ -1,0 +1,6 @@
+{
+  "snippets.priority": 0,
+  "snippets.extends": {
+    "typescriptreact": ["react", "javascript"]
+  }
+}
