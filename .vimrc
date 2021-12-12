@@ -134,7 +134,6 @@ let g:airline_mode_map = {
     \ 'V'      : 'V',
     \ ''     : 'V',
     \ }
-let g:airline_section_z = airline#section#create_right(['linenr', 'maxlinenr'])
 
 " Airline extensions
 let g:airline#extensions#branch#enabled = 1
@@ -155,7 +154,7 @@ let g:airline#extensions#nerdtree_statusline = 1
 
 let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
 
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
 
 " NERDTree settings
 let g:NERDTreeWinPos = "right"
@@ -212,3 +211,6 @@ packloadall
 " Load all of the helptags now, after plugins have been loaded.
 " All messages and errors will be ignored.
 silent! helptags ALL
+
+" Modify airline after section modification
+let g:airline_section_z = airline#section#create_right(['linenr', 'maxlinenr'])
