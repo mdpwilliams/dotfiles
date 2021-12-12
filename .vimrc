@@ -103,7 +103,6 @@ let g:coc_global_extensions = [
       \   'coc-highlight',
       \   'coc-markdownlint',
       \   'coc-git',
-      \   'coc-tsserver',
       \   'coc-json',
       \   'coc-html',
       \   'coc-css',
