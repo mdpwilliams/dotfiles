@@ -184,9 +184,9 @@ nnoremap <leader>f :Ag
 nnoremap <leader>g :Git
 
 " Make sure swap, backup, and undo files don't clutter up my directories
-set directory=~/.vim/swap//
-set backupdir=~/.vim/backup//
-set undodir=~/.vim/undo//
+set directory=$HOME/.vim/swap//
+set backupdir=$HOME/.vim/backup//
+set undodir=$HOME/.vim/undo//
 
 " set colour theme
 syntax on
