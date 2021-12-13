@@ -86,8 +86,8 @@ curl https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/m
   "$HOME/.oh-my-zsh/custom/themes/bullet-train.zsh-theme"
 
 # neovim setup
-mkdir $HOME/.config/nvim/
-ln -sf $HOME/dotfiles/init.vim $HOME/.config/nvim/
+ln -sf $HOME/dotfiles/.config/nvim/init.vim $HOME/.config/nvim/
+ln -sf $HOME/dotfiles/.config/nvim/coc-settings.json $HOME/.config/nvim/
 
 if $mac_os; then
   brew install zsh-autosuggestions
