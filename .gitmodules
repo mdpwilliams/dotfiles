@@ -47,3 +47,6 @@
 [submodule ".vim/pack/plugins/start/vim-snippets"]
 	path = .vim/pack/plugins/start/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
+[submodule ".vim/pack/plugins/start/targets.vim"]
+	path = .vim/pack/plugins/start/targets.vim
+	url = https://github.com/wellle/targets.vim.git
