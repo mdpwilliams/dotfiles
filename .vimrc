@@ -14,6 +14,8 @@ augroup CursorLine
 augroup END
 
 " Custom Settings
+set hidden
+
 set showcmd
 set showmatch " Highlight matching [{()}]
 set smartindent
@@ -30,9 +32,9 @@ set breakindent " Indent wrapped lines
 set showbreak=↳ " Show ↳ in broken lines
 set splitright " Split to the right
 set splitbelow " and below the current buffer
-set cmdheight=1
+set cmdheight=2
 set signcolumn=yes
-set updatetime=100
+set updatetime=300
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
 
@@ -170,8 +172,8 @@ packadd! fzf
 packadd! fzf.vim
 set rtp+=/usr/local/opt/fzf
 
-" let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
-let g:fzf_layout = { 'down': '35%' }
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+" let g:fzf_layout = { 'down': '35%' }
 let $FZF_DEFAULT_COMMAND='ag -g "" -p ~/.ignore'
 let $FZF_DEFAULT_OPTS = '--reverse'
 
