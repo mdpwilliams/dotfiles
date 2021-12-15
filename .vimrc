@@ -110,6 +110,7 @@ let g:coc_global_extensions = [
       \   'coc-css',
       \   'coc-eslint',
       \   'coc-snippets',
+      \   'coc-yank',
       \ ]
 
 " Airline settings
