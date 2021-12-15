@@ -56,9 +56,9 @@ else
   )
 
   # Spin has neovim...
-  # sudo add-apt-repository ppa:neovim-ppa/stable
-  # sudo apt-get -y update
-  # sudo apt-get -y install neovim
+  sudo add-apt-repository ppa:neovim-ppa/stable
+  sudo apt-get -y update
+  sudo apt-get -y install neovim
 fi
 
 for package in "${packages[@]}"; do
