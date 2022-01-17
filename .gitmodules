@@ -8,45 +8,45 @@
 	path = .vim/pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule ".vim/pack/plugins/start/vim-commentary"]
-	path = .vim/pack/plugins/start/vim-commentary
+	path = .vim/pack/plugin/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
 [submodule ".vim/pack/plugins/start/vim-signify"]
-	path = .vim/pack/plugins/start/vim-signify
+	path = .vim/pack/plugin/start/vim-signify
 	url = https://github.com/mhinz/vim-signify.git
 [submodule ".vim/pack/plugins/start/vim-airline"]
-	path = .vim/pack/plugins/start/vim-airline
+	path = .vim/pack/plugin/start/vim-airline
 	url = https://github.com/bling/vim-airline.git
 [submodule ".vim/pack/plugins/start/auto-pairs"]
-	path = .vim/pack/plugins/start/auto-pairs
+	path = .vim/pack/plugin/start/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs.git
 [submodule ".vim/pack/plugins/start/vim-polyglot"]
-	path = .vim/pack/plugins/start/vim-polyglot
+	path = .vim/pack/plugin/start/vim-polyglot
 	url = https://github.com/jiangmiao/auto-pairs.git
 [submodule ".vim/pack/plugins/opt/fzf"]
 	path = .vim/pack/plugins/opt/fzf
 	url = https://github.com/junegunn/fzf.git
 [submodule ".vim/pack/plugins/start/ale"]
-	path = .vim/pack/plugins/start/ale
+	path = .vim/pack/plugin/start/ale
 	url = https://github.com/dense-analysis/ale.git
 [submodule ".vim/pack/plugins/start/nerdtree"]
-	path = .vim/pack/plugins/start/nerdtree
+	path = .vim/pack/plugin/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule ".vim/pack/plugins/start/vim-surround"]
-	path = .vim/pack/plugins/start/vim-surround
+	path = .vim/pack/plugin/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule ".vim/pack/plugins/start/coc.nvim"]
-	path = .vim/pack/plugins/start/coc.nvim
+	path = .vim/pack/plugin/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim.git
   branch = release
 [submodule ".vim/pack/plugins/start/emmet-vim"]
-	path = .vim/pack/plugins/start/emmet-vim
+	path = .vim/pack/plugin/start/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
 [submodule ".vim/pack/plugins/start/ultisnips"]
-	path = .vim/pack/plugins/start/ultisnips
+	path = .vim/pack/plugin/start/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
 [submodule ".vim/pack/plugins/start/vim-snippets"]
-	path = .vim/pack/plugins/start/vim-snippets
+	path = .vim/pack/plugin/start/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
 [submodule ".vim/pack/plugins/start/targets.vim"]
-	path = .vim/pack/plugins/start/targets.vim
+	path = .vim/pack/plugin/start/targets.vim
 	url = https://github.com/wellle/targets.vim.git
