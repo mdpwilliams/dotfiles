@@ -85,7 +85,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew vi-mode man)
+plugins=(git brew vi-mode man zsh-autosuggestions)
 if $mac_os; then
   plugins+=(macos)
 fi
@@ -132,7 +132,7 @@ fi
 
 # Useful Tools Alias
 # cat out but with syntax highlighting
-alias cat=bat
+# alias cat=bat
 
 # Vim
 alias v="nvim"
@@ -161,6 +161,10 @@ if $mac_os; then
     /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   )
 fi
+
+# zsh-autocomplete
+zstyle ':autocomplete:*' min-delay 0.1
+zstyle ':autocomplete:*' min-input 2
 
 for s in $sources; do
   if [ -f $s ]; then

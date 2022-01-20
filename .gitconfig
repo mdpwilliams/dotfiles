@@ -9,7 +9,7 @@
   defaultbranch = main
 
 [alias]
-  shopify = "config user.email 'mitchell.williams@shopify.com'"
+  shopify = "config user.email 'mitchell.williams@shopify.com' user.name 'Mitchell Williams'"
   please = push --force-with-lease
   upstream-current = push --set-upstream $(git branch --show-current)
   unstage = reset -q HEAD --

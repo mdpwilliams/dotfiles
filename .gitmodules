@@ -1,52 +1,58 @@
-[submodule ".vim/pack/plugins/opt/fzf"]
-	path = .vim/pack/plugins/opt/fzf
+[submodule ".vim/pack/plugin/opt/fzf"]
+	path = .vim/pack/plugin/opt/fzf
 	url = https://github.com/junegunn/fzf.git
-[submodule ".vim/pack/plugins/start/fzf.vim"]
-	path = .vim/pack/plugins/start/fzf.vim
+[submodule ".vim/pack/plugin/start/fzf.vim"]
+	path = .vim/pack/plugin/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
-[submodule ".vim/pack/plugins/start/vim-fugitive"]
-	path = .vim/pack/plugins/start/vim-fugitive
+[submodule ".vim/pack/plugin/start/vim-fugitive"]
+	path = .vim/pack/plugin/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule ".vim/pack/plugins/start/vim-commentary"]
+[submodule ".vim/pack/plugin/start/vim-commentary"]
 	path = .vim/pack/plugin/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule ".vim/pack/plugins/start/vim-signify"]
+[submodule ".vim/pack/plugin/start/vim-signify"]
 	path = .vim/pack/plugin/start/vim-signify
 	url = https://github.com/mhinz/vim-signify.git
-[submodule ".vim/pack/plugins/start/vim-airline"]
+[submodule ".vim/pack/plugin/start/vim-airline"]
 	path = .vim/pack/plugin/start/vim-airline
 	url = https://github.com/bling/vim-airline.git
-[submodule ".vim/pack/plugins/start/auto-pairs"]
+[submodule ".vim/pack/plugin/start/auto-pairs"]
 	path = .vim/pack/plugin/start/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs.git
-[submodule ".vim/pack/plugins/start/vim-polyglot"]
-	path = .vim/pack/plugin/start/vim-polyglot
-	url = https://github.com/jiangmiao/auto-pairs.git
-[submodule ".vim/pack/plugins/opt/fzf"]
-	path = .vim/pack/plugins/opt/fzf
+[submodule ".vim/pack/plugin/opt/fzf"]
+	path = .vim/pack/plugin/opt/fzf
 	url = https://github.com/junegunn/fzf.git
-[submodule ".vim/pack/plugins/start/ale"]
+[submodule ".vim/pack/plugin/start/ale"]
 	path = .vim/pack/plugin/start/ale
 	url = https://github.com/dense-analysis/ale.git
-[submodule ".vim/pack/plugins/start/nerdtree"]
+[submodule ".vim/pack/plugin/start/nerdtree"]
 	path = .vim/pack/plugin/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule ".vim/pack/plugins/start/vim-surround"]
+[submodule ".vim/pack/plugin/start/vim-surround"]
 	path = .vim/pack/plugin/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule ".vim/pack/plugins/start/coc.nvim"]
+[submodule ".vim/pack/plugin/start/coc.nvim"]
 	path = .vim/pack/plugin/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim.git
   branch = release
-[submodule ".vim/pack/plugins/start/emmet-vim"]
+[submodule ".vim/pack/plugin/start/emmet-vim"]
 	path = .vim/pack/plugin/start/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
-[submodule ".vim/pack/plugins/start/ultisnips"]
+[submodule ".vim/pack/plugin/start/ultisnips"]
 	path = .vim/pack/plugin/start/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
-[submodule ".vim/pack/plugins/start/vim-snippets"]
+[submodule ".vim/pack/plugin/start/vim-snippets"]
 	path = .vim/pack/plugin/start/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
-[submodule ".vim/pack/plugins/start/targets.vim"]
+[submodule ".vim/pack/plugin/start/targets.vim"]
 	path = .vim/pack/plugin/start/targets.vim
 	url = https://github.com/wellle/targets.vim.git
+[submodule ".vim/pack/plugin/start/vim-polyglot"]
+	path = .vim/pack/plugin/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
+[submodule ".vim/pack/plugin/start/telescope.nvim"]
+	path = .vim/pack/plugin/start/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim
+[submodule ".vim/pack/plugin/start/plenary.nvim"]
+	path = .vim/pack/plugin/start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim

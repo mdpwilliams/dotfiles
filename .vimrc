@@ -1,3 +1,4 @@
+syntax on
 
 " get <Del> to work properly
 set backspace=indent,eol,start
@@ -58,6 +59,9 @@ map <leader>q :e ~/buffer<cr>
 
 " Quickly open a markdown buffer for scribble
 map <leader>x :e ~/buffer.md<cr>
+"
+" set filetypes as typescriptreact
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
 " Whitespace on save
 function! StripTrailingWhitespace()
@@ -81,12 +85,18 @@ set shortmess+=c
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" tab trigger completion with coc-snippets addition
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? coc#_select_confirm() :
+  \ coc#expandableOrJumpable() ? "\<C-r>coc#rpc#request('doKeymap', ['snippets-expand-jump', ''])\<CR>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -112,6 +122,9 @@ let g:coc_global_extensions = [
       \   'coc-snippets',
       \   'coc-yank',
       \ ]
+
+" Snippet settings
+let g:coc_snippet_next = '<tab>'
 
 " Airline settings
 let g:airline_theme = 'dracula_pro'
@@ -169,18 +182,24 @@ map <leader>nf :NERDTreeFind<cr>
 
 " fzf completion
 " installation
-packadd! fzf
-packadd! fzf.vim
-set rtp+=/usr/local/opt/fzf
+" packadd! fzf
+" packadd! fzf.vim
+" set rtp+=/usr/local/opt/fzf
 
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
-" let g:fzf_layout = { 'down': '35%' }
-let $FZF_DEFAULT_COMMAND='ag -g "" -p ~/.ignore'
-let $FZF_DEFAULT_OPTS = '--reverse'
+" let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+" let $FZF_DEFAULT_COMMAND='ag -g "" -p ~/.ignore'
+" let $FZF_DEFAULT_OPTS = '--reverse'
 
-nnoremap <C-p> :Files<CR>
-nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>f :Ag
+" fzf remaps
+" nnoremap <C-p> :Files<CR>
+" nnoremap <leader>b :Buffers<CR>
+" nnoremap <leader>f :Ag
+
+" telescope remaps
+nnoremap <C-p> <cmd>Telescope find_files<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>f <cmd>Telescope grep_string<cr>
+nnoremap <leader>gb <cmd>Telescope git_branches<cr>
 
 " vim-fugitive settings
 nnoremap <leader>g :Git
@@ -191,21 +210,24 @@ set backupdir=$HOME/.vim/backup//
 set undodir=$HOME/.vim/undo//
 
 " set colour theme
-syntax on
+" set t_Co=256 " (if needed) use 256-colour setting
+set termguicolors " Not sure if needed I think this is what's causing issue with syntax
 set bg=dark
-set t_Co=256 " (if needed) use 256-colour setting
-set termguicolors
-if &term =~ '256color'
-    set t_ut=
-endif
 
 packadd! dracula_pro
 
 let g:dracula_colorterm = 0
+let g:dracula_italic = 1
+let g:dracula_bold = 1
 colorscheme dracula_pro
 
 set noshowmode
 set noruler
+
+" Polyglot and language
+autocmd BufNewFile,BufRead *.json set filetype=javascript
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+autocmd BufNewFile,BufRead *.graphql set filetype=graphql
 
 " Load all plugins now.
 " Plugins need to be added to runtimepath before helptags can be generated.

@@ -95,6 +95,16 @@ if $mac_os; then
   brew install zsh-autosuggestions
 else
   mkdir -p "$HOME/.oh-my-zsh/custom/plugins"
-  git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+  git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.oh-my-zsh/plugins/zsh-autosuggestions"
 fi
 
+# Enable and run a gitconfiguration for specific username and email
+if [ $SPIN ]; then
+  git config --global --unset-all credential.helper
+
+  for dir in ~/src/github.com/Shopify/*/ ; do
+    cd $dir
+    git shopify
+    cd - >/dev/null
+  done
+fi
