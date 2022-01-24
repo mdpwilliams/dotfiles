@@ -70,11 +70,11 @@ for filename in .*; do
   link_file "$filename"
 done
 
-cd "$HOME/.vim/pack/plugins/start"
+cd "$HOME/.vim/pack/plugin/start"
 git submodule update --init --recursive
 cd -
 
-cd "$HOME/.vim/pack/plugins/opt"
+cd "$HOME/.vim/pack/plugin/opt"
 git submodule update --init --recursive
 cd -
 
