@@ -100,7 +100,7 @@ fi
 
 # Enable and run a gitconfiguration for specific username and email
 if [ $SPIN ]; then
-  git config --global --unset-all credential.helper
+  # git config --global --unset-all credential.helper
 
   for dir in ~/src/github.com/Shopify/*/ ; do
     cd $dir
