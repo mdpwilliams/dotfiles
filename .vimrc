@@ -112,6 +112,7 @@ endif
 
 " extensions
 let g:coc_global_extensions = [
+      \   'coc-tsserver',
       \   'coc-highlight',
       \   'coc-markdownlint',
       \   'coc-git',
