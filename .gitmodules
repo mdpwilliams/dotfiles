@@ -56,3 +56,6 @@
 [submodule ".vim/pack/plugin/start/plenary.nvim"]
 	path = .vim/pack/plugin/start/plenary.nvim
 	url = https://github.com/nvim-lua/plenary.nvim
+[submodule ".vim/pack/plugin/start/nvim-treesitter"]
+	path = .vim/pack/plugin/start/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
