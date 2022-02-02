@@ -104,7 +104,8 @@ if [ $SPIN ]; then
 
   for dir in ~/src/github.com/Shopify/*/ ; do
     cd $dir
-    git shopify
+    git shopifyemail
+    git shopifyuser
     cd - >/dev/null
   done
 fi
