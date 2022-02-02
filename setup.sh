@@ -12,9 +12,9 @@ install_package() {
 }
 
 link_file() {
-	if [ "$1" == "setup.sh" ] || [ "$1" == "." ] || [ "$1" == ".." ] || [ "$1" == ".git" ]; then
-		return
-	fi
+  if [ "$1" == "setup.sh" ] || [ "$1" == "." ] || [ "$1" == ".." ] || [ "$1" == ".git" ]; then
+    return
+  fi
 
   source=$link_source/$1
   link=$HOME/$1
@@ -39,21 +39,21 @@ fi
 set -u
 
 declare -a packages=(
-  "fzf"
+"fzf"
 )
 
 if $mac_os; then
   packages+=(
-    "bat"
-    "glow"
-    "the_silver_searcher"
-    "zsh-completions"
-    "neovim"
-  )
+  "bat"
+  "glow"
+  "the_silver_searcher"
+  "zsh-completions"
+  "neovim"
+)
 else
   packages+=(
-    "silversearcher-ag"
-  )
+  "silversearcher-ag"
+)
 
   # Spin has neovim...
   sudo apt purge -y neovim # remove old neovim
