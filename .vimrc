@@ -170,7 +170,8 @@ let g:airline#extensions#nerdtree_statusline = 1
 
 let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
 
-" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 " NERDTree settings
 let g:NERDTreeWinPos = "right"
@@ -238,4 +239,5 @@ packloadall
 silent! helptags ALL
 
 " Modify airline after section modification
-let g:airline_section_z = airline#section#create_right(['linenr', 'maxlinenr'])
+let g:airline_section_y = airline#section#create_right([])
+let g:airline_section_z = airline#section#create_right([])
