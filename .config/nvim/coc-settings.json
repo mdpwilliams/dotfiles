@@ -1,4 +1,10 @@
 {
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "react",
+    "typescriptreact",
+    "typescript",
+  ],
   "snippets.priority": 0,
   "snippets.extends": {
     "typescriptreact": ["react", "javascript"]
