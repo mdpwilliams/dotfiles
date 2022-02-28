@@ -62,3 +62,6 @@
 [submodule ".vim/pack/plugin/start/vim-unimpaired"]
 	path = .vim/pack/plugin/start/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule ".vim/pack/plugin/start/copilot.vim"]
+	path = .vim/pack/plugin/start/copilot.vim
+	url = https://github.com/github/copilot.vim
