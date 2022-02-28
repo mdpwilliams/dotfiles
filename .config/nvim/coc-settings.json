@@ -1,9 +1,16 @@
 {
+  "diagnostic.enable": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextPrefix": "> ",
+  "diagnostic.messageTarget": "echo",
+  "diagnostic.messageDelay": 100,
+  "diagnostic.format": "[%source%code] %message",
+  "codeLens.enable": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "react",
     "typescriptreact",
-    "typescript",
+    "typescript"
   ],
   "snippets.priority": 0,
   "snippets.extends": {
