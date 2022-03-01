@@ -12,8 +12,11 @@
     "typescriptreact",
     "typescript"
   ],
-  "snippets.priority": 0,
+  "coc.source.around.priority": 80,
+  "coc.source.buffer.priority": 90,
+  "snippets.priority": 100,
   "snippets.extends": {
     "typescriptreact": ["react", "javascript"]
-  }
+  },
+  "yank.priority": 20
 }
