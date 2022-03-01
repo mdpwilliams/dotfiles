@@ -59,9 +59,6 @@ map <leader>q :e ~/buffer<cr>
 
 " Quickly open a markdown buffer for scribble
 map <leader>x :e ~/buffer.md<cr>
-"
-" set filetypes as typescriptreact
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
 " Whitespace on save
 function! StripTrailingWhitespace()
@@ -97,18 +94,12 @@ inoremap <silent><expr> <TAB>
   \ coc#expandableOrJumpable() ? "\<C-r>coc#rpc#request('doKeymap', ['snippets-expand-jump', ''])\<CR>" :
   \ <SID>check_back_space() ? "\<TAB>" :
   \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
 
 " keymaps
 " navigation
@@ -120,6 +111,10 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-reference)
+
+" codeActions
+nmap <leader>ac <Plug>(coc-code-action)
+nmap <leader>qf <Plug>(coc-fix-current)
 
 " extensions
 let g:coc_global_extensions = [
@@ -175,6 +170,7 @@ let g:airline#extensions#fzf#enabled = 1
 
 " git hunks
 let g:airline#extensions#hunks#enabled = 1
+let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
 let g:airline#extensions#hunks#coc_git = 1
 
@@ -182,8 +178,7 @@ let g:airline#extensions#nerdtree_statusline = 1
 
 let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#enabled = 0
 
 " NERDTree settings
 let g:NERDTreeWinPos = "right"
@@ -214,6 +209,8 @@ nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>f <cmd>Telescope grep_string<cr>
 nnoremap <leader>gb <cmd>Telescope git_branches<cr>
+nnoremap <leader>gs <cmd>Telescope git_status<cr>
+nnoremap <leader>h <cmd>Telescope help_tags<cr>
 
 " vim-fugitive settings
 nnoremap <leader>g :Git
@@ -238,10 +235,9 @@ colorscheme dracula_pro
 set noshowmode
 set noruler
 
-" Polyglot and language
-autocmd BufNewFile,BufRead *.json set filetype=javascript
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
-autocmd BufNewFile,BufRead *.graphql set filetype=graphql
+" indent character showcase
+set list
+set lcs=tab:»_,trail:·
 
 " Load all plugins now.
 " Plugins need to be added to runtimepath before helptags can be generated.
