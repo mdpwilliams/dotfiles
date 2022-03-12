@@ -2,51 +2,54 @@
 	path = .vim/pack/plugin/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule ".vim/pack/plugin/start/vim-commentary"]
-	path = .config/nvim/plugin/start/vim-commentary
+	path = .config/nvim/pack/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
 [submodule ".vim/pack/plugin/start/vim-signify"]
-	path = .config/nvim/plugin/start/vim-signify
+	path = .config/nvim/pack/start/vim-signify
 	url = https://github.com/mhinz/vim-signify.git
 [submodule ".vim/pack/plugin/start/vim-airline"]
-	path = .config/nvim/plugin/start/vim-airline
+	path = .config/nvim/pack/start/vim-airline
 	url = https://github.com/bling/vim-airline.git
 [submodule ".vim/pack/plugin/start/auto-pairs"]
-	path = .config/nvim/plugin/start/auto-pairs
+	path = .config/nvim/pack/start/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs.git
 [submodule ".vim/pack/plugin/start/nerdtree"]
-	path = .config/nvim/plugin/start/nerdtree
+	path = .config/nvim/pack/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule ".vim/pack/plugin/start/vim-surround"]
-	path = .config/nvim/plugin/start/vim-surround
+	path = .config/nvim/pack/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule ".vim/pack/plugin/start/coc.nvim"]
-	path = .config/nvim/plugin/start/coc.nvim
+	path = .config/nvim/pack/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim.git
   branch = release
 [submodule ".vim/pack/plugin/start/emmet-vim"]
-	path = .config/nvim/plugin/start/emmet-vim
+	path = .config/nvim/pack/start/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
 [submodule ".vim/pack/plugin/start/ultisnips"]
-	path = .config/nvim/plugin/start/ultisnips
+	path = .config/nvim/pack/start/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
 [submodule ".vim/pack/plugin/start/vim-snippets"]
-	path = .config/nvim/plugin/start/vim-snippets
+	path = .config/nvim/pack/start/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
 [submodule ".vim/pack/plugin/start/targets.vim"]
-	path = .config/nvim/plugin/start/targets.vim
+	path = .config/nvim/pack/start/targets.vim
 	url = https://github.com/wellle/targets.vim.git
 [submodule ".vim/pack/plugin/start/vim-polyglot"]
-	path = .config/nvim/plugin/start/vim-polyglot
+	path = .config/nvim/pack/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
 [submodule ".vim/pack/plugin/start/telescope.nvim"]
-	path = .config/nvim/plugin/start/telescope.nvim
+	path = .config/nvim/pack/start/telescope.nvim
 	url = https://github.com/nvim-telescope/telescope.nvim
 [submodule ".vim/pack/plugin/start/plenary.nvim"]
-	path = .config/nvim/plugin/start/plenary.nvim
+	path = .config/nvim/pack/start/plenary.nvim
 	url = https://github.com/nvim-lua/plenary.nvim
 [submodule ".vim/pack/plugin/start/vim-unimpaired"]
-	path = .config/nvim/plugin/start/vim-unimpaired
+	path = .config/nvim/pack/start/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
 [submodule ".vim/pack/plugin/start/copilot.vim"]
-	path = .config/nvim/plugin/start/copilot.vim
+	path = .config/nvim/pack/start/copilot.vim
 	url = https://github.com/github/copilot.vim
+[submodule ".config/nvim/plugin/start/nvim-treesitter"]
+	path = .config/nvim/pack/start/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter
