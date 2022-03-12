@@ -20,7 +20,7 @@
 	path = .config/nvim/pack/plugin/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule ".vim/pack/plugin/start/coc.nvim"]
-	path = .config/nvim/pack/plugin/start/coc.nvim
+	path = .config/nvim/pack/plugin/start/coc-nvim
 	url = https://github.com/neoclide/coc.nvim.git
   branch = release
 [submodule ".vim/pack/plugin/start/emmet-vim"]
@@ -33,22 +33,22 @@
 	path = .config/nvim/pack/plugin/start/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
 [submodule ".vim/pack/plugin/start/targets.vim"]
-	path = .config/nvim/pack/plugin/start/targets.vim
+	path = .config/nvim/pack/plugin/start/targets-vim
 	url = https://github.com/wellle/targets.vim.git
 [submodule ".vim/pack/plugin/start/vim-polyglot"]
 	path = .config/nvim/pack/plugin/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
 [submodule ".vim/pack/plugin/start/telescope.nvim"]
-	path = .config/nvim/pack/plugin/start/telescope.nvim
+	path = .config/nvim/pack/plugin/start/telescope-nvim
 	url = https://github.com/nvim-telescope/telescope.nvim
 [submodule ".vim/pack/plugin/start/plenary.nvim"]
-	path = .config/nvim/pack/plugin/start/plenary.nvim
+	path = .config/nvim/pack/plugin/start/plenary-nvim
 	url = https://github.com/nvim-lua/plenary.nvim
 [submodule ".vim/pack/plugin/start/vim-unimpaired"]
 	path = .config/nvim/pack/plugin/start/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
 [submodule ".vim/pack/plugin/start/copilot.vim"]
-	path = .config/nvim/pack/plugin/start/copilot.vim
+	path = .config/nvim/pack/plugin/start/copilot-vim
 	url = https://github.com/github/copilot.vim
 [submodule ".config/nvim/plugin/start/nvim-treesitter"]
 	path = .config/nvim/pack/plugin/start/nvim-treesitter
