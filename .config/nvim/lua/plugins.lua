@@ -18,18 +18,21 @@ return require('packer').startup(function(use)
     branch = 'release',
     run = ':CocUpdate',
   }
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    config = function() require'nvim-treesitter.configs'.setup {
-      ensure_installed = 'maintained',
-    } end
-  }
+  use { 'sheerun/vim-polyglot' }
+  -- use {
+  --   'nvim-treesitter/nvim-treesitter',
+  --   run = ':TSUpdate',
+  --   config = function() require'nvim-treesitter.configs'.setup {
+  --     ensure_installed = 'maintained',
+  --   } end
+  -- }
   use {
     'nvim-telescope/telescope.nvim',
-    requires = {{'nvim-lua/plenary.nvim'},
+    requires = {{'nvim-lua/plenary.nvim'}},
   }
-}
+
+  use { 'kyazdani42/nvim-web-devicons' }
+
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {{'kyazdani42/nvim-web-devicons'}},
