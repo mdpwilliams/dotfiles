@@ -1,5 +1,4 @@
-" vim-signify settings
-let g:signify_sign_change = '~'
+lua require('plugins')
 
 " coc.nvim settings
 " extensions
@@ -99,24 +98,17 @@ let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
 let g:airline#extensions#hunks#coc_git = 1
 
-let g:airline#extensions#nerdtree_statusline = 1
-
 let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
 
 let g:airline#extensions#tabline#enabled = 0
 
 " Modify airline after section modification
-" let g:airline_section_y = airline#section#create_right([])
-" let g:airline_section_z = airline#section#create_right([])
+let g:airline_section_y = airline#section#create_right([])
+let g:airline_section_z = airline#section#create_right([])
 
 " NERDTree settings
-let g:NERDTreeWinPos = "right"
-let NERDTreeShowHidden=0
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
-let g:NERDTreeWinSize=35
-map <leader>nn :NERDTreeToggle<cr>
-map <leader>nb :NERDTreeFromBookmark<Space>
-map <leader>nf :NERDTreeFind<cr>
+map <leader>nn :NvimTreeFocus<cr>
+map <leader>nf :NvimTreeFindFile<cr>
 
 " telescope.nvim settings
 " remaps

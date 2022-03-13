@@ -54,12 +54,6 @@ else
   packages+=(
   "silversearcher-ag"
 )
-
-  # Spin has neovim...
-  # sudo apt purge -y neovim # remove old neovim
-  # sudo add-apt-repository ppa:neovim-ppa/stable
-  # sudo apt-get update
-  # sudo apt-get install -y neovim
 fi
 
 for package in "${packages[@]}"; do
@@ -70,13 +64,24 @@ for filename in .*; do
   link_file "$filename"
 done
 
-cd "$HOME/.vim/pack/plugin/start"
-git submodule update --init --recursive
-cd -
+# neovim setup for packages
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-cd "$HOME/.vim/pack/plugin/opt"
-git submodule update --init --recursive
-cd -
+if [ $SPIN ]; then
+  yarn global add neovim
+  pip3 install neovim
+fi
+
+## Link config files
+ln -sf $HOME/dotfiles/.config/nvim $HOME/.config/
+
+# cd "$HOME/.vim/pack/plugin/start"
+# git submodule update --init --recursive
+# cd -
+#
+# cd "$HOME/.vim/pack/plugin/opt"
+# git submodule update --init --recursive
+# cd -
 
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 mv "$HOME/.zshrc" "$HOME/.zshrc-ohmyzsh"
@@ -86,10 +91,6 @@ mv "$HOME/.zshrc.pre-oh-my-zsh" "$HOME/.zshrc"
 mkdir -p "$HOME/.oh-my-zsh/custom/themes"
 curl https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme > \
   "$HOME/.oh-my-zsh/custom/themes/bullet-train.zsh-theme"
-
-# neovim setup
-# ln -sf $HOME/dotfiles/.config/nvim/init.vim $HOME/.config/nvim/
-# ln -sf $HOME/dotfiles/.config/nvim/coc-settings.json $HOME/.config/nvim/
 
 if $mac_os; then
   brew install zsh-autosuggestions

@@ -1,5 +1,5 @@
 " set runtimepath^=$HOME/.vim runtimepath+=$HOME/.vim/after
-let &packpath=&runtimepath
+" let &packpath=&runtimepath
 " source $HOME/.vimrc
 
 " Custom settings
@@ -29,11 +29,11 @@ set noruler
 set list
 set lcs=tab:»_,trail:·
 
+source $HOME/.config/nvim/modules/keybindings.vim
+
 source $HOME/.config/nvim/modules/colours.vim
 
 source $HOME/.config/nvim/modules/plugins.vim
-
-source $HOME/.config/nvim/modules/keybindings.vim
 
 " Correct scrolling behaviour
 if has('mouse')

@@ -1,12 +1,11 @@
 let mapleader= ","
 
 " map space to forward search and ctrl-space to reverse search
-map <space> / " FIXME: how often is this used?
+map <space> /
 map <C-space> ?
 
 " Custom aliases
 nmap <leader>w :w<CR>
-nmap <leader><CR> :so ~/.vimrc<CR>
 
 " Clever movements
 map <C-j> <C-W>j
