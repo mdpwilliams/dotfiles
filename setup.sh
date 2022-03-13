@@ -68,12 +68,9 @@ done
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 if [ $SPIN ]; then
-  yarn global add neovim
-  pip3 install neovim
+  # yarn global add neovim
+  # pip3 install neovim
 fi
-
-## Link config files
-ln -sf $HOME/dotfiles/.config/nvim $HOME/.config/
 
 # cd "$HOME/.vim/pack/plugin/start"
 # git submodule update --init --recursive
@@ -105,6 +102,7 @@ if [ $SPIN ]; then
 
   for dir in ~/src/github.com/Shopify/*/ ; do
     cd $dir
+    shadowenv trust
     git shopifyemail
     git shopifyuser
     cd - >/dev/null
