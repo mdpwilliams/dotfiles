@@ -69,8 +69,8 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvi
 
 # if [ $SPIN ]; then
 #   nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-  yarn global add neovim tree-sitter
-  pip3 install neovim
+  # yarn global add neovim tree-sitter
+  # pip3 install neovim
 # fi
 
 # cd "$HOME/.vim/pack/plugin/start"
@@ -101,7 +101,7 @@ fi
 if [ $SPIN ]; then
   for dir in ~/src/github.com/Shopify/*/ ; do
     cd $dir
-    shadowenv trust
+    # shadowenv trust
     git shopifyemail
     git shopifyuser
     cd - >/dev/null
