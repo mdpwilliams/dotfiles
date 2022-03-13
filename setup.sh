@@ -65,7 +65,7 @@ for filename in .*; do
 done
 
 # neovim setup for packages
-git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+# git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 # if [ $SPIN ]; then
 #   nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
