@@ -68,8 +68,8 @@ done
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 if [ $SPIN ]; then
-  # yarn global add neovim
-  # pip3 install neovim
+  yarn global add neovim
+  pip3 install neovim
 fi
 
 # cd "$HOME/.vim/pack/plugin/start"
@@ -98,8 +98,6 @@ fi
 
 # Enable and run a gitconfiguration for specific username and email
 if [ $SPIN ]; then
-  # git config --global --unset-all credential.helper
-
   for dir in ~/src/github.com/Shopify/*/ ; do
     cd $dir
     shadowenv trust
