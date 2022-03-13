@@ -7,11 +7,11 @@ vim.cmd([[
 ]])
 
 -- needed for automatic updates during fresh install
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-end
+-- local fn = vim.fn
+-- local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+-- if fn.empty(fn.glob(install_path)) > 0 then
+--   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+-- end
 
 return require('packer').startup(function(use)
   -- Packer can manage itself
@@ -38,11 +38,11 @@ return require('packer').startup(function(use)
     requires = {{'nvim-lua/plenary.nvim'}},
   }
 
-  use { 'kyazdani42/nvim-web-devicons' }
+  -- use { 'kyazdani42/nvim-web-devicons' }
 
   use {
     'kyazdani42/nvim-tree.lua',
-    requires = {{'kyazdani42/nvim-web-devicons'}},
+    -- requires = {{'kyazdani42/nvim-web-devicons'}},
     config = function() require'nvim-tree'.setup {
       disable_netrw        = false,
       hijack_netrw         = true,

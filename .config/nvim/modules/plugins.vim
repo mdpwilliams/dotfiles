@@ -106,7 +106,12 @@ let g:airline#extensions#tabline#enabled = 0
 let g:airline_section_y = airline#section#create_right([])
 let g:airline_section_z = airline#section#create_right([])
 
-" NERDTree settings
+" nvim-tree settings
+let g:nvim_tree_show_icons = {
+      \ 'git': 1,
+      \ 'folders': 0,
+      \ 'files': 0,
+      \ }
 map <leader>nn :NvimTreeFocus<cr>
 map <leader>nf :NvimTreeFindFile<cr>
 

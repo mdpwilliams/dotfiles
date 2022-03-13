@@ -65,13 +65,13 @@ for filename in .*; do
 done
 
 # neovim setup for packages
-# git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-if [ $SPIN ]; then
-  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+# if [ $SPIN ]; then
+#   nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
   yarn global add neovim tree-sitter
   pip3 install neovim
-fi
+# fi
 
 # cd "$HOME/.vim/pack/plugin/start"
 # git submodule update --init --recursive
