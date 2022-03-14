@@ -67,11 +67,11 @@ done
 # neovim setup for packages
 # git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-# if [ $SPIN ]; then
-#   nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-  # yarn global add neovim tree-sitter
-  # pip3 install neovim
-# fi
+if [ $SPIN ]; then
+  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+  yarn global add neovim tree-sitter
+  pip3 install neovim
+fi
 
 # cd "$HOME/.vim/pack/plugin/start"
 # git submodule update --init --recursive
@@ -101,7 +101,7 @@ fi
 if [ $SPIN ]; then
   for dir in ~/src/github.com/Shopify/*/ ; do
     cd $dir
-    # shadowenv trust
+    shadowenv trust
     git shopifyemail
     git shopifyuser
     cd - >/dev/null
