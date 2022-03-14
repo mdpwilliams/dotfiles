@@ -4,9 +4,6 @@
 [submodule ".vim/pack/plugin/start/vim-commentary"]
 	path = .config/nvim/pack/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule ".vim/pack/plugin/start/vim-signify"]
-	path = .config/nvim/pack/vim-signify
-	url = https://github.com/mhinz/vim-signify.git
 [submodule ".vim/pack/plugin/start/vim-airline"]
 	path = .config/nvim/pack/vim-airline
 	url = https://github.com/bling/vim-airline.git
