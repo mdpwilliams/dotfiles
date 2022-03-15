@@ -4,9 +4,6 @@ lua require('plugins')
 " extensions
 let g:coc_global_extensions = [
       \   'coc-tsserver',
-      \   'coc-highlight',
-      \   'coc-markdownlint',
-      \   'coc-git',
       \   'coc-json',
       \   'coc-html',
       \   'coc-css',
@@ -93,10 +90,10 @@ let g:airline#extensions#fugitiveline#enabled = 1
 let g:airline#extensions#fzf#enabled = 1
 
 " git hunks
-let g:airline#extensions#hunks#enabled = 1
-let g:airline#extensions#hunks#non_zero_only = 1
-let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
-let g:airline#extensions#hunks#coc_git = 1
+" let g:airline#extensions#hunks#enabled = 1
+" let g:airline#extensions#hunks#non_zero_only = 1
+" let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
+" let g:airline#extensions#hunks#coc_git = 1
 
 let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
 
@@ -108,11 +105,12 @@ let g:airline_section_z = airline#section#create_right([])
 
 " nvim-tree settings
 let g:nvim_tree_show_icons = {
-      \ 'git': 1,
+      \ 'git': 0,
       \ 'folders': 0,
       \ 'files': 0,
+      \ 'folder_arrows': 0,
       \ }
-map <leader>nn :NvimTreeFocus<cr>
+map <leader>nn :NvimTreeToggle<cr>
 map <leader>nf :NvimTreeFindFile<cr>
 
 " telescope.nvim settings

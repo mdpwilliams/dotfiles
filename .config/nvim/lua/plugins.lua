@@ -82,7 +82,7 @@ return require('packer').startup(function(use)
         custom = {}
       },
       git = {
-        enable = true,
+        enable = false,
         ignore = true,
         timeout = 500,
       },
@@ -110,7 +110,7 @@ return require('packer').startup(function(use)
           global = false,
         },
         open_file = {
-          quit_on_open = false,
+          quit_on_open = true,
           resize_window = false,
           window_picker = {
             enable = true,
@@ -148,9 +148,9 @@ return require('packer').startup(function(use)
         changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
       },
       signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
-      numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
+      numhl      = true, -- Toggle with `:Gitsigns toggle_numhl`
       linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
-      word_diff  = fase, -- Toggle with `:Gitsigns toggle_word_diff`
+      word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
       watch_gitdir = {
         interval = 1000,
         follow_files = true
@@ -182,7 +182,6 @@ return require('packer').startup(function(use)
     } end
     -- tag = 'release' -- To use the latest release
   }
-  -- use 'mhinz/vim-signify'
 
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
