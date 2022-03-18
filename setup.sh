@@ -97,6 +97,12 @@ else
   git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.oh-my-zsh/plugins/zsh-autosuggestions"
 fi
 
+# enable github in spin if the file is present
+if [ -f /etc/spin/secrets/copilot_hosts.json ]; then
+  mkdir -p "${HOME}/.config/github-copilot"
+  cp /etc/spin/secrets/copilot_hosts.json "${HOME}/.config/github-copilot/hosts.json"
+fi
+
 # Enable and run a gitconfiguration for specific username and email
 if [ $SPIN ]; then
   for dir in ~/src/github.com/Shopify/*/ ; do
