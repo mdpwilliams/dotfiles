@@ -50,3 +50,9 @@
 [submodule ".config/nvim/plugin/start/nvim-treesitter"]
 	path = .config/nvim/pack/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter
+[submodule ".config/nvim/plugin/start/nvim-lspconfig"]
+	path = .config/nvim/pack/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
+[submodule ".config/nvim/pack/lspsaga.nvim"]
+	path = .config/nvim/pack/lspsaga.nvim
+	url = https://github.com/glepnir/lspsaga.nvim

@@ -1,3 +1,5 @@
+-- local utils = require("utils")
+
 -- Automatically update plugins when this file changes
 vim.cmd([[
   augroup packer_user_config
@@ -13,190 +15,133 @@ if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
-return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+require('packer').startup({
+  function(use)
+    use { 'lewis6991/impatient.nvim', config = [[require('config.impatient')]] }
 
-  use { '$HOME/.config/nvim/pack/dracula_pro' }
-  use 'bling/vim-airline'
+    -- Packer can manage itself
+    use {'wbthomason/packer.nvim'}
 
-  use {
-    'neoclide/coc.nvim',
-    branch = 'release',
-    run = ':CocUpdate',
-  }
-  use { 'sheerun/vim-polyglot' }
-  -- use {
-  --   'nvim-treesitter/nvim-treesitter',
-  --   run = ':TSUpdate',
-  --   config = function() require'nvim-treesitter.configs'.setup {
-  --     ensure_installed = 'maintained',
-  --   } end
-  -- }
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = {{'nvim-lua/plenary.nvim'}},
-  }
+    -- we could replace this with nvim-lualine/lualine.nvim
+    use 'bling/vim-airline'
 
-  -- use { 'kyazdani42/nvim-web-devicons' }
+    use({"onsails/lspkind-nvim", event = "VimEnter"})
 
-  use {
-    'kyazdani42/nvim-tree.lua',
-    -- requires = {{'kyazdani42/nvim-web-devicons'}},
-    config = function() require'nvim-tree'.setup {
-      disable_netrw        = false,
-      hijack_netrw         = true,
-      open_on_setup        = false,
-      ignore_buffer_on_setup = false,
-      ignore_ft_on_setup   = {},
-      auto_close           = false,
-      auto_reload_on_write = true,
-      open_on_tab          = false,
-      hijack_cursor        = false,
-      update_cwd           = false,
-      hijack_unnamed_buffer_when_opening = false,
-      hijack_directories   = {
-        enable = true,
-        auto_open = true,
-      },
-      diagnostics = {
-        enable = false,
-        icons = {
-          hint = "",
-          info = "",
-          warning = "",
-          error = "",
-        }
-      },
-      update_focused_file = {
-        enable      = false,
-        update_cwd  = false,
-        ignore_list = {}
-      },
-      system_open = {
-        cmd  = nil,
-        args = {}
-      },
-      filters = {
-        dotfiles = false,
-        custom = {}
-      },
-      git = {
-        enable = false,
-        ignore = true,
-        timeout = 500,
-      },
-      view = {
-        width = 30,
-        height = 30,
-        hide_root_folder = false,
-        side = 'left',
-        preserve_window_proportions = false,
-        mappings = {
-          custom_only = false,
-          list = {}
+    -- auto-completion engine
+    use {"hrsh7th/nvim-cmp",
+      after = "lspkind-nvim",
+      config = [[require('config.nvim-cmp')]]
+    }
+
+    -- nvim-cmp completion sources
+    use {"hrsh7th/cmp-nvim-lsp", after = "nvim-cmp"}
+    use {"hrsh7th/cmp-nvim-lua", after = "nvim-cmp"}
+    use {"hrsh7th/cmp-path", after = "nvim-cmp"}
+    use {"hrsh7th/cmp-buffer", after = "nvim-cmp"}
+    use {"quangnguyen30192/cmp-nvim-ultisnips", after = {"nvim-cmp", 'ultisnips'}}
+
+    -- This instead of Coc.nvim
+    use { "neovim/nvim-lspconfig",
+      after = "cmp-nvim-lsp",
+      config = [[require('config.lsp')]]
+    }
+
+    use { 'glepnir/lspsaga.nvim' }
+
+    use {
+      'nvim-treesitter/nvim-treesitter',
+      event = 'BufEnter',
+      run = ':TSUpdate',
+      config = [[require('config.treesitter')]]
+    }
+
+    use {
+      'nvim-telescope/telescope.nvim',
+      cmd = 'Telescope',
+      requires = {{'nvim-lua/plenary.nvim'}},
+      config = [[require('config.telescope')]]
+    }
+
+    -- add indent object
+    use { 'michaeljsmith/vim-indent-object', event = "VimEnter" }
+
+    -- use { 'kyazdani42/nvim-web-devicons' }
+
+    use {
+      'kyazdani42/nvim-tree.lua',
+      -- requires = {{'kyazdani42/nvim-web-devicons'}},
+      config = [[require('config.nvim-tree')]]
+    }
+
+    use 'tpope/vim-fugitive'
+
+    use {
+      'lewis6991/gitsigns.nvim',
+      requires = {{'nvim-lua/plenary.nvim'}},
+      config = function() require'gitsigns'.setup {
+        signs = {
+          add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+          change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+          delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+          topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+          changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
         },
-        number = false,
-        relativenumber = false,
-        signcolumn = "yes"
-      },
-      trash = {
-        cmd = "trash",
-        require_confirm = true
-      },
-      actions = {
-        change_dir = {
-          enable = true,
-          global = false,
+        signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
+        numhl      = true, -- Toggle with `:Gitsigns toggle_numhl`
+        linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
+        word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
+        watch_gitdir = {
+          interval = 1000,
+          follow_files = true
         },
-        open_file = {
-          quit_on_open = true,
-          resize_window = false,
-          window_picker = {
-            enable = true,
-            chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
-            exclude = {
-              filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame", },
-              buftype  = { "nofile", "terminal", "help", },
-            }
-          }
-        }
-      },
-      log = {
-        enable = false,
-        truncate = false,
-        types = {
-          all = false,
-          config = false,
-          git = false,
+        attach_to_untracked = true,
+        current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+        current_line_blame_opts = {
+          virt_text = true,
+          virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+          delay = 1000,
+          ignore_whitespace = false,
         },
-      },
-    } end
-  }
+        current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
+        sign_priority = 6,
+        update_debounce = 100,
+        status_formatter = nil, -- Use default
+        max_file_length = 40000,
+        preview_config = {
+          -- Options passed to nvim_open_win
+          border = 'single',
+          style = 'minimal',
+          relative = 'cursor',
+          row = 0,
+          col = 1
+        },
+        yadm = {
+          enable = false
+        },l
+      } end
+      -- tag = 'release' -- To use the latest release
+    }
 
-  use 'tpope/vim-fugitive'
+    use { "$HOME/.config/nvim/pack/dracula_pro", opt = true }
 
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = {{'nvim-lua/plenary.nvim'}},
-    config = function() require'gitsigns'.setup {
-      signs = {
-        add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-        change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-        delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-        topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-        changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-      },
-      signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
-      numhl      = true, -- Toggle with `:Gitsigns toggle_numhl`
-      linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
-      word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
-      watch_gitdir = {
-        interval = 1000,
-        follow_files = true
-      },
-      attach_to_untracked = true,
-      current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
-      current_line_blame_opts = {
-        virt_text = true,
-        virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
-        delay = 1000,
-        ignore_whitespace = false,
-      },
-      current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
-      sign_priority = 6,
-      update_debounce = 100,
-      status_formatter = nil, -- Use default
-      max_file_length = 40000,
-      preview_config = {
-        -- Options passed to nvim_open_win
-        border = 'single',
-        style = 'minimal',
-        relative = 'cursor',
-        row = 0,
-        col = 1
-      },
-      yadm = {
-        enable = false
-      },l
-    } end
-    -- tag = 'release' -- To use the latest release
-  }
+    use ({"SirVer/ultisnips", event = "InsertEnter"})
+    use ({"honza/vim-snippets", after = "ultisnips"})
+    -- debugging tool for Jest tests
+    use ({ 'David-Kunz/jester', require = 'nvim-treesitter', event = "VimEnter" })
+    use 'github/copilot.vim'
 
-  use 'tpope/vim-commentary'
-  use 'tpope/vim-surround'
-  use 'tpope/vim-unimpaired'
-  use 'wellle/targets.vim'
-  use 'jiangmiao/auto-pairs'
+    use ({"tpope/vim-commentary", event = "VimEnter"})
+    use ({'tpope/vim-surround'})
+    use 'tpope/vim-unimpaired'
+    use ({'tpope/vim-repeat', event = "VimEnter"})
+    use 'wellle/targets.vim'
+    use 'jiangmiao/auto-pairs'
 
-  use 'SirVer/ultisnips'
-  use 'honza/vim-snippets'
-  use 'github/copilot.vim'
+    use 'mattn/emmet-vim'
 
-  use 'mattn/emmet-vim'
-
-  if packer_bootstrap then
-    require('packer').sync()
+    if packer_bootstrap then
+      require('packer').sync()
+    end
   end
-end);
+});
 
