@@ -2,11 +2,14 @@
   name = Mitchell Williams
 
 [core]
-  editor = vim
+  editor = nvim
   excludesfile = ~/.gitignore_global
 
 [init]
   defaultbranch = main
+
+[commit]
+  gpgsign = true
 
 [alias]
   shopifyemail = "config user.email 'mitchell.williams@shopify.com'"
