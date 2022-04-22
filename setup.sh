@@ -12,17 +12,12 @@ install_package() {
 }
 
 link_file() {
-  if [ "$1" == "setup.sh" ] || [ "$1" == "." ] || [ "$1" == ".." ] || [ "$1" == ".git" ]; then
+  if [ "$1" == ".gitmodules" ] || [ "$1" == "setup.sh" ] || [ "$1" == "." ] || [ "$1" == ".." ] || [ "$1" == ".git" ]; then
     return
   fi
 
   source=$link_source/$1
   link=$HOME/$1
-
-  if [ -e "$link" ]; then
-    mkdir -p dotfiles-backup
-    mv "$link" dotfiles-backup
-  fi
 
   ln -sf "$source" "$link"
 }
@@ -64,22 +59,19 @@ for filename in .*; do
   link_file "$filename"
 done
 
-# neovim setup for packages
-# git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+# Install latest neovim
+echo "Installing latest neovim"
+sudo apt purge neovim
+sudo add-apt-repository -y ppa:neovim-ppa/unstable
+sudo apt update
+sudo apt install -y neovim
 
 if [ $SPIN ]; then
   # nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
   yarn global add neovim tree-sitter
+  npm i -g typescript typescript-language-server
   pip3 install neovim
 fi
-
-# cd "$HOME/.vim/pack/plugin/start"
-# git submodule update --init --recursive
-# cd -
-#
-# cd "$HOME/.vim/pack/plugin/opt"
-# git submodule update --init --recursive
-# cd -
 
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 mv "$HOME/.zshrc" "$HOME/.zshrc-ohmyzsh"
@@ -107,9 +99,7 @@ fi
 if [ $SPIN ]; then
   for dir in ~/src/github.com/Shopify/*/ ; do
     cd $dir
-    # shadowenv trust
-    git shopifyemail
-    git shopifyuser
+    shadowenv trust
     cd - >/dev/null
   done
 fi
