@@ -19,6 +19,11 @@ link_file() {
   source=$link_source/$1
   link=$HOME/$1
 
+  if [ -e "$link" ]; then
+    mkdir -p dotfiles-backup
+    mv "$link" dotfiles-backup
+  fi
+
   ln -sf "$source" "$link"
 }
 
