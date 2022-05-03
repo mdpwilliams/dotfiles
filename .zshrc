@@ -43,6 +43,9 @@ BULLETTRAIN_VIRTUALENV_BG=green
 BULLETTRAIN_VIRTUALENV_FG=black
 BULLETTRAIN_STATUS_EXIT_SHOW=true
 
+# For signing commits with gpg
+export GPG_TTY=$(tty)
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
