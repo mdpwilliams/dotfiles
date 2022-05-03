@@ -62,6 +62,12 @@ require('packer').startup({
       config = [[require('config.telescope')]]
     }
 
+    use {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      requires = {{'nvim-telescope/telescope.nvim'}},
+      run = 'make'
+    }
+
     -- add indent object
     use { 'michaeljsmith/vim-indent-object', event = "VimEnter" }
 
@@ -117,7 +123,7 @@ require('packer').startup({
         },
         yadm = {
           enable = false
-        },l
+        },
       } end
       -- tag = 'release' -- To use the latest release
     }
