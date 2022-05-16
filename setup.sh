@@ -40,6 +40,7 @@ set -u
 
 declare -a packages=(
 "fzf"
+"ripgrep"
 )
 
 if $mac_os; then

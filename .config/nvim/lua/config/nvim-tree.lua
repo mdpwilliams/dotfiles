@@ -1,21 +1,23 @@
 require'nvim-tree'.setup {
+  auto_reload_on_write = true,
   disable_netrw        = false,
+  hijack_cursor        = false,
   hijack_netrw         = true,
-  open_on_setup        = false,
+  hijack_unnamed_buffer_when_opening = false,
   ignore_buffer_on_setup = false,
   ignore_ft_on_setup   = {},
-  auto_close           = false,
-  auto_reload_on_write = true,
+  open_on_setup        = false,
+  open_on_setup_file = false,
   open_on_tab          = false,
-  hijack_cursor        = false,
-  update_cwd           = false,
-  hijack_unnamed_buffer_when_opening = false,
+  sort_by         = "name",
+  update_cwd           = true,
   hijack_directories   = {
     enable = true,
     auto_open = true,
   },
   diagnostics = {
-    enable = true,
+    enable = false,
+    show_on_dirs = false,
     icons = {
       hint = "?",
       info = "i",
@@ -42,7 +44,7 @@ require'nvim-tree'.setup {
     timeout = 500,
   },
   view = {
-    width = 50,
+    width = '25%',
     height = 30,
     hide_root_folder = false,
     side = 'left',
@@ -54,6 +56,20 @@ require'nvim-tree'.setup {
     number = false,
     relativenumber = false,
     signcolumn = "yes"
+  },
+  renderer ={
+    indent_markers = {
+      enable = true,
+      icons = {
+        corner = "└ ",
+        edge = "│ ",
+        none = "  ",
+      },
+    },
+    icons = {
+      webdev_colors = true,
+      git_placement = "before",
+    }
   },
   trash = {
     cmd = "trash",

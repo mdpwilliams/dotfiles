@@ -7,6 +7,9 @@ cmp.setup({
       vm.fn["UltiSnips#Anon"](args.body)
     end,
   },
+  view = {
+    entries = { name = 'custom', selection_order = 'near_cursor' }
+  },
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
@@ -28,15 +31,22 @@ cmp.setup({
     end, { 'i', 'c' }),
     ['<Tab>'] = cmp.mapping.confirm({ select = true }),
   },
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'ultisnips' },
-  },
+  sources = cmp.config.sources(
+    {
+      { name = 'nvim_lsp' },
+      { name = 'ultisnips' },
+    },
+    {
+      { name = 'copilot' },
+    },
     {
       { name = 'buffer' },
     }),
   formatting = {
-    format = lspkind.cmp_format({with_text = false, maxwidth = 50})
+    format = lspkind.cmp_format({
+      mode = 'symbol',
+      maxwidth = 50
+    })
   }
 })
 

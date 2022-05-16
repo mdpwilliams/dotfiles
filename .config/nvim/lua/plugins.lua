@@ -22,14 +22,24 @@ require('packer').startup({
     -- Packer can manage itself
     use {'wbthomason/packer.nvim'}
 
-    -- we could replace this with nvim-lualine/lualine.nvim
-    use 'bling/vim-airline'
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = {'kyazdani42/nvim-web-devicons'},
+      config = [[require('config.lualine')]]
+    }
 
-    use({"onsails/lspkind-nvim", event = "VimEnter"})
+    use({
+      "onsails/lspkind-nvim",
+      config = [[require('config.lspkind')]],
+      event = "VimEnter",
+    })
+
+    use {'kyazdani42/nvim-web-devicons'}
 
     -- auto-completion engine
     use {"hrsh7th/nvim-cmp",
       after = "lspkind-nvim",
+      requires = {'kyazdani42/nvim-web-devicons'},
       config = [[require('config.nvim-cmp')]]
     }
 
@@ -38,9 +48,9 @@ require('packer').startup({
     use {"hrsh7th/cmp-nvim-lua", after = "nvim-cmp"}
     use {"hrsh7th/cmp-path", after = "nvim-cmp"}
     use {"hrsh7th/cmp-buffer", after = "nvim-cmp"}
+    use {"hrsh7th/cmp-copilot", after = "nvim-cmp"}
     use {"quangnguyen30192/cmp-nvim-ultisnips", after = {"nvim-cmp", 'ultisnips'}}
 
-    -- This instead of Coc.nvim
     use { "neovim/nvim-lspconfig",
       after = "cmp-nvim-lsp",
       config = [[require('config.lsp')]]
@@ -57,9 +67,13 @@ require('packer').startup({
 
     use {
       'nvim-telescope/telescope.nvim',
-      cmd = 'Telescope',
-      requires = {{'nvim-lua/plenary.nvim'}},
-      config = [[require('config.telescope')]]
+      config = [[require('config.telescope')]],
+      requires = {{'nvim-lua/plenary.nvim'}}
+    }
+
+    use {
+      'burntsushi/ripgrep',
+      requires = {{'nvim-telescope/telescope.nvim'}}
     }
 
     use {
@@ -71,11 +85,9 @@ require('packer').startup({
     -- add indent object
     use { 'michaeljsmith/vim-indent-object', event = "VimEnter" }
 
-    -- use { 'kyazdani42/nvim-web-devicons' }
-
     use {
       'kyazdani42/nvim-tree.lua',
-      -- requires = {{'kyazdani42/nvim-web-devicons'}},
+      requires = {'kyazdani42/nvim-web-devicons'},
       config = [[require('config.nvim-tree')]]
     }
 
@@ -84,48 +96,7 @@ require('packer').startup({
     use {
       'lewis6991/gitsigns.nvim',
       requires = {{'nvim-lua/plenary.nvim'}},
-      config = function() require'gitsigns'.setup {
-        signs = {
-          add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-          change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-          delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-          topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-          changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-        },
-        signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
-        numhl      = true, -- Toggle with `:Gitsigns toggle_numhl`
-        linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
-        word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
-        watch_gitdir = {
-          interval = 1000,
-          follow_files = true
-        },
-        attach_to_untracked = true,
-        current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
-        current_line_blame_opts = {
-          virt_text = true,
-          virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
-          delay = 1000,
-          ignore_whitespace = false,
-        },
-        current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
-        sign_priority = 6,
-        update_debounce = 100,
-        status_formatter = nil, -- Use default
-        max_file_length = 40000,
-        preview_config = {
-          -- Options passed to nvim_open_win
-          border = 'single',
-          style = 'minimal',
-          relative = 'cursor',
-          row = 0,
-          col = 1
-        },
-        yadm = {
-          enable = false
-        },
-      } end
-      -- tag = 'release' -- To use the latest release
+      config = [[require('config.git-signs')]]
     }
 
     use { "$HOME/.config/nvim/pack/dracula_pro", opt = true }
