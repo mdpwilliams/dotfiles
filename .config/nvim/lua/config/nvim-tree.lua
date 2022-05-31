@@ -57,7 +57,7 @@ require'nvim-tree'.setup {
     relativenumber = false,
     signcolumn = "yes"
   },
-  renderer ={
+  renderer = {
     indent_markers = {
       enable = true,
       icons = {
