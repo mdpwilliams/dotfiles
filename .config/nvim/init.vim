@@ -29,6 +29,11 @@ set noruler
 set list
 set lcs=tab:»_,trail:·
 
+" set undo directory and remove swap files
+set undodir=$HOME/.config/nvim/undodir
+set undofile
+set noswapfile
+
 source $HOME/.config/nvim/modules/keybindings.vim
 
 source $HOME/.config/nvim/modules/colours.vim

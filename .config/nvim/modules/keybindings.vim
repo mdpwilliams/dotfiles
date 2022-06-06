@@ -1,9 +1,5 @@
 let mapleader= ","
 
-" map space to forward search and ctrl-space to reverse search
-map <space> /
-map <C-space> ?
-
 " Custom aliases
 nmap <leader>w :w<CR>
 

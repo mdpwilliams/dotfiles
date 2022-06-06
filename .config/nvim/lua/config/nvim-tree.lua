@@ -18,12 +18,6 @@ require'nvim-tree'.setup {
   diagnostics = {
     enable = false,
     show_on_dirs = false,
-    icons = {
-      hint = "?",
-      info = "i",
-      warning = "!",
-      error = "✗",
-    }
   },
   update_focused_file = {
     enable      = false,
@@ -82,7 +76,7 @@ require'nvim-tree'.setup {
     },
     open_file = {
       quit_on_open = true,
-      resize_window = false,
+      resize_window = true,
       window_picker = {
         enable = true,
         chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",

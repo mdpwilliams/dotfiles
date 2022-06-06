@@ -145,18 +145,19 @@ vim.fn.sign_define("DiagnosticSignInformation", { text = "i", texthl = "Diagnost
 vim.fn.sign_define("DiagnosticSignHint", { text = "?", texthl = "DiagnosticSignHint" })
 
 -- global config for diagnostic
--- vim.diagnostic.config({
---   underline = true,
---   virtual_text = true,
---   signs = true,
---   severity_sort = true,
--- })
+-- this is what shows the information... FIXME
+vim.diagnostic.config({
+  underline = true,
+  virtual_text = true,
+  signs = true,
+  severity_sort = true,
+})
 
--- vim.lsp.handlers['textDocument/publishDiagonistics'] = vim.lsp.with(
---   vim.lsp.diagnostic.on_publish_diagnostics, {
---     underline = true,
---     virtual_text = {
---       spacing = 4
---     }
---   }
--- )
+vim.lsp.handlers['textDocument/publishDiagonistics'] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    underline = true,
+    virtual_text = {
+      spacing = 4
+    }
+  }
+)
