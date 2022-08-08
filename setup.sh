@@ -39,8 +39,6 @@ fi
 set -u
 
 declare -a packages=(
-"fzf"
-"ripgrep"
 )
 
 if $mac_os; then
@@ -65,12 +63,12 @@ for filename in .*; do
   link_file "$filename"
 done
 
-# Install latest neovim
-echo "Installing latest neovim"
-sudo apt purge neovim
-sudo add-apt-repository -y ppa:neovim-ppa/unstable
-sudo apt update
-sudo apt install -y neovim
+# # Install latest neovim
+# echo "Installing latest neovim"
+# sudo apt purge neovim
+# sudo add-apt-repository -y ppa:neovim-ppa/unstable
+# sudo apt update
+# sudo apt install -y neovim
 
 if [ $SPIN ]; then
   # nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
