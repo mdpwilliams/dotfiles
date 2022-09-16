@@ -141,11 +141,18 @@ fi
 alias v="nvim"
 alias vv="nvim ."
 
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/bin:$PATH"
+PATH+="/usr/local/sbin:$PATH"
+PATH+="/usr/local/bin:$PATH"
 if $mac_os; then
-  export PATH="$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH"
+  PATH="$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH"
 fi
+# Add yarn global bin to PATH
+PATH+="$(yarn global bin):$PATH"
+
+PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# Export PATH
+export PATH
 
 # NVM settings
 export NVM_DIR="$HOME/.nvm"
