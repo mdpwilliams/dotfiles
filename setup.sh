@@ -98,12 +98,3 @@ if [ -f /etc/spin/secrets/copilot_hosts.json ]; then
   mkdir -p "${HOME}/.config/github-copilot"
   cp /etc/spin/secrets/copilot_hosts.json "${HOME}/.config/github-copilot/hosts.json"
 fi
-
-# Enable and run a gitconfiguration for specific username and email
-if [ $SPIN ]; then
-  for dir in ~/src/github.com/Shopify/*/ ; do
-    cd $dir
-    shadowenv trust
-    cd - >/dev/null
-  done
-fi
